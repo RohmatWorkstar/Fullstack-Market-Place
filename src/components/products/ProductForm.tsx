@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Upload, X, Loader2 } from 'lucide-react';
+import { toast } from '@/stores/toast-store';
 import { createClient } from '@/lib/supabase/client';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
@@ -53,7 +54,7 @@ export default function ProductForm({ initialData }: ProductFormProps) {
       setImageUrl(data.publicUrl);
     } catch (error) {
       console.error('Error uploading image:', error);
-      alert('Error uploading image!');
+      toast.error('Error uploading image!');
     } finally {
       setUploading(false);
     }
@@ -87,19 +88,14 @@ export default function ProductForm({ initialData }: ProductFormProps) {
           .update(productData)
           .eq('id', initialData.id);
         if (error) throw error;
-      } else {
-        // Insert
-        const { error } = await supabase
-          .from('products')
-          .insert(productData);
-        if (error) throw error;
+        toast.success('Product created successfully!');
       }
 
       router.push('/dashboard');
       router.refresh();
     } catch (error) {
       console.error('Error saving product:', error);
-      alert('Error saving product!');
+      toast.error('Error saving product!');
     } finally {
       setLoading(false);
     }

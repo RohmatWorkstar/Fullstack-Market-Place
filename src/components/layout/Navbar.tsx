@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { ShoppingCart, User, LogOut, Package, Search, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
@@ -22,8 +22,10 @@ import LanguageToggle from '../LanguageToggle';
  */
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
   const [mounted, setMounted] = useState(false);
@@ -85,6 +87,15 @@ export default function Navbar() {
     window.location.href = '/login';
   };
 
+  const handleSearch = (e: React.FormEvent | React.KeyboardEvent) => {
+    if ('key' in e && e.key !== 'Enter') return;
+    e.preventDefault();
+    if (!searchQuery.trim()) return;
+    
+    setIsMobileMenuOpen(false);
+    router.push(`/products?q=${encodeURIComponent(searchQuery.trim())}`);
+  };
+
   const isSeller = profile?.role === 'seller';
 
   return (
@@ -102,14 +113,16 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex flex-1 items-center justify-center px-8">
-            <div className="relative w-full max-w-md group">
+            <form onSubmit={handleSearch} className="relative w-full max-w-md group">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-surface-400 group-focus-within:text-primary-500 transition-colors" />
               <input
                 type="text"
                 placeholder={t.searchPlaceholder}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 rounded-full bg-surface-100/50 border border-surface-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all placeholder:text-surface-400 text-sm dark:bg-surface-800 dark:border-surface-700 dark:focus:bg-surface-900"
               />
-            </div>
+            </form>
           </div>
 
           {/* Desktop Actions */}
@@ -226,14 +239,17 @@ export default function Navbar() {
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-surface-900 border-b border-surface-200 dark:border-surface-800 shadow-lg px-4 py-4 space-y-4 animate-fade-in">
-          <div className="relative w-full">
+          <form onSubmit={handleSearch} className="relative w-full">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-surface-400" />
             <input
               type="text"
               placeholder={t.searchPlaceholder}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={handleSearch}
               className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-50 border border-surface-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-surface-800 dark:border-surface-700"
             />
-          </div>
+          </form>
           
           <div className="pt-2 border-t border-surface-100 dark:border-surface-800 flex flex-col gap-2">
             {!loading && profile ? (

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { Upload, X, Loader2, Save, User } from 'lucide-react';
+import { toast } from '@/stores/toast-store';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/client';
 import Button from '@/components/ui/Button';
@@ -20,7 +21,6 @@ export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
-  const [message, setMessage] = useState({ type: '', text: '' });
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [mounted, setMounted] = useState(false);
   const { language } = useLanguageStore();
@@ -58,7 +58,6 @@ export default function ProfilePage() {
     
     try {
       setUploading(true);
-      setMessage({ type: '', text: '' });
       const file = e.target.files?.[0];
       if (!file) return;
 
@@ -80,7 +79,7 @@ export default function ProfilePage() {
       setAvatarUrl(data.publicUrl);
     } catch (error: any) {
       console.error('Error uploading image:', error);
-      setMessage({ type: 'error', text: 'Failed to upload image' });
+      toast.error('Failed to upload image');
     } finally {
       setUploading(false);
     }
@@ -91,8 +90,6 @@ export default function ProfilePage() {
     if (saving || uploading) return;
     
     setSaving(true);
-    setMessage({ type: '', text: '' });
-
     try {
       const supabase = createClient();
       const { data: { user } } = await supabase.auth.getUser();
@@ -108,11 +105,11 @@ export default function ProfilePage() {
 
       if (error) throw error;
 
-      setMessage({ type: 'success', text: 'Profile updated successfully!' });
+      toast.success('Profile updated successfully!');
       router.refresh(); // Refresh layout to update navbar
     } catch (error: any) {
       console.error('Error updating profile:', error);
-      setMessage({ type: 'error', text: 'Failed to update profile' });
+      toast.error('Failed to update profile');
     } finally {
       setSaving(false);
     }
@@ -137,12 +134,6 @@ export default function ProfilePage() {
       </div>
 
       <div className="glass p-8 rounded-3xl">
-        {message.text && (
-          <Alert variant={message.type === 'error' ? 'error' : 'success'} className="mb-6">
-            {message.text}
-          </Alert>
-        )}
-
         <form onSubmit={handleSave} className="space-y-8">
           {/* Avatar Section */}
           <div className="flex flex-col sm:flex-row items-start gap-6 pb-8 border-b border-surface-200 dark:border-surface-800">

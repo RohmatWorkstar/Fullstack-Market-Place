@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ShoppingCart, CheckCircle, Minus, Plus } from 'lucide-react';
+import { toast } from '@/stores/toast-store';
 import { useCartStore } from '@/stores/cart-store';
 import Button from '@/components/ui/Button';
 import type { Product } from '@/lib/types';
@@ -20,6 +21,7 @@ export default function AddToCartButton({ product }: { product: Product }) {
     
     _addItem(product, quantity);
     setAdded(true);
+    toast.success(`${product.name} added to cart!`);
     setTimeout(() => setAdded(false), 2000);
   };
 

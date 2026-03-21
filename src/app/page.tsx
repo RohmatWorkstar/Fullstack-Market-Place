@@ -18,9 +18,11 @@ export default async function Home() {
   return (
     <div className="space-y-24 pb-16 animate-fade-in">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-12 pb-24 md:pt-20 md:pb-32">
-        <div className="absolute inset-0 bg-primary-50/50" />
-        <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-primary-100/50 to-transparent" />
+      <section className="relative overflow-hidden pt-20 pb-28 md:pt-32 md:pb-48">
+        <div className="absolute inset-0 bg-surface-900">
+           <div className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-center opacity-40 dark:opacity-30" />
+           <div className="absolute inset-0 bg-gradient-to-r from-surface-900 via-surface-900/80 to-transparent" />
+        </div>
         
         <div className="container-custom relative">
           <div className="max-w-3xl space-y-8">
@@ -29,11 +31,11 @@ export default async function Home() {
               <Translate section="home" textKey="tagline" />
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-surface-900 dark:text-surface-50 text-balance animate-slide-up" style={{ animationDelay: '100ms' }}>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white text-balance animate-slide-up" style={{ animationDelay: '100ms' }}>
               <Translate section="home" textKey="heroTitle" />
             </h1>
             
-            <p className="text-lg text-surface-600 dark:text-surface-300 max-w-2xl leading-relaxed animate-slide-up" style={{ animationDelay: '200ms' }}>
+            <p className="text-lg text-surface-200 max-w-2xl leading-relaxed animate-slide-up" style={{ animationDelay: '200ms' }}>
               <Translate section="home" textKey="heroSubtitle" />
             </p>
             

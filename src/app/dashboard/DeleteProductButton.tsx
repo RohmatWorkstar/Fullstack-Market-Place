@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Trash2 } from 'lucide-react';
+import { toast } from '@/stores/toast-store';
 import { createClient } from '@/lib/supabase/client';
 import Button from '@/components/ui/Button';
 import { ConfirmModal } from '@/components/ui/Modal';
@@ -20,6 +21,7 @@ export default function DeleteProductButton({ id, name }: { id: string; name: st
     // Deleting the product will cascade delete cart_items and order_items connected to it based on our schema.
     await supabase.from('products').delete().eq('id', id);
     
+    toast.success('Product deleted successfully');
     setLoading(false);
     setIsOpen(false);
     router.refresh();
