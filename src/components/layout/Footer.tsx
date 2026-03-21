@@ -10,9 +10,9 @@ export default function Footer() {
             <Link href="/" className="text-xl font-bold gradient-text">
               Marketplace
             </Link>
-            <p className="text-surface-500 dark:text-surface-400 text-sm mt-2">
+            {/* <p className="text-surface-500 dark:text-surface-400 text-sm mt-2">
               <Translate section="footer" textKey="tagline" />
-            </p>
+            </p> */}
           </div>
           
           <div className="flex space-x-6 text-sm text-surface-500 dark:text-surface-300">

@@ -26,10 +26,10 @@ export default async function Home() {
         
         <div className="container-custom relative">
           <div className="max-w-3xl space-y-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-surface-900 border border-primary-100 dark:border-primary-900/50 text-sm font-medium text-primary-700 dark:text-primary-400 shadow-sm animate-slide-up" style={{ animationDelay: '0ms' }}>
+            {/* <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-surface-900 border border-primary-100 dark:border-primary-900/50 text-sm font-medium text-primary-700 dark:text-primary-400 shadow-sm animate-slide-up" style={{ animationDelay: '0ms' }}>
               <span className="flex h-2 w-2 rounded-full bg-primary-600 animate-pulse" />
               <Translate section="home" textKey="tagline" />
-            </div>
+            </div> */}
             
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white text-balance animate-slide-up" style={{ animationDelay: '100ms' }}>
               <Translate section="home" textKey="heroTitle" />
