@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Mail, Lock, AlertCircle } from 'lucide-react';
@@ -8,6 +8,8 @@ import { createClient } from '@/lib/supabase/client';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { Alert } from '@/components/ui/EmptyState';
+import { useLanguageStore } from '@/stores/language-store';
+import { dictionaries } from '@/lib/i18n/dictionaries';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -15,6 +17,11 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { language } = useLanguageStore();
+
+  useEffect(() => setMounted(true), []);
+  const tAuth = mounted ? dictionaries[language].auth : dictionaries.en.auth;
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,10 +51,10 @@ export default function LoginPage() {
       <div className="w-full max-w-md space-y-8 glass p-8 sm:p-10 rounded-3xl">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-surface-900">
-            Welcome back
+            {tAuth.loginTitle}
           </h2>
           <p className="mt-2 text-sm text-surface-500">
-            Sign in to your account
+            {tAuth.loginSubtitle}
           </p>
         </div>
 
@@ -67,7 +74,7 @@ export default function LoginPage() {
                 id="email"
                 type="email"
                 required
-                placeholder="Email address"
+                placeholder={tAuth.email}
                 className="pl-11"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -82,7 +89,7 @@ export default function LoginPage() {
                 id="password"
                 type="password"
                 required
-                placeholder="Password"
+                placeholder={tAuth.password}
                 className="pl-11"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -91,13 +98,13 @@ export default function LoginPage() {
           </div>
 
           <Button type="submit" className="w-full" loading={loading} size="lg">
-            Sign in
+            {tAuth.signIn}
           </Button>
           
           <div className="text-center text-sm text-surface-500">
-            Don't have an account?{' '}
+            {tAuth.noAccount}{' '}
             <Link href="/register" className="font-semibold text-primary-600 hover:text-primary-500 hover:underline">
-              Sign up
+              {tAuth.signUp}
             </Link>
           </div>
         </form>

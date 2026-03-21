@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Mail, Lock, User, Store, ShoppingBag } from 'lucide-react';
@@ -10,6 +10,8 @@ import Input from '@/components/ui/Input';
 import { Alert } from '@/components/ui/EmptyState';
 import { cn } from '@/lib/utils';
 import type { UserRole } from '@/lib/types';
+import { useLanguageStore } from '@/stores/language-store';
+import { dictionaries } from '@/lib/i18n/dictionaries';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -19,6 +21,11 @@ export default function RegisterPage() {
   const [role, setRole] = useState<UserRole>('buyer');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { language } = useLanguageStore();
+
+  useEffect(() => setMounted(true), []);
+  const tAuth = mounted ? dictionaries[language].auth : dictionaries.en.auth;
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -57,10 +64,10 @@ export default function RegisterPage() {
       <div className="w-full max-w-md space-y-8 glass p-8 sm:p-10 rounded-3xl">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-surface-900">
-            Create an account
+            {tAuth.registerTitle}
           </h2>
           <p className="mt-2 text-sm text-surface-500">
-            Join our marketplace today
+            {tAuth.registerSubtitle}
           </p>
         </div>
 
@@ -90,7 +97,7 @@ export default function RegisterPage() {
                 )}>
                   <ShoppingBag className="w-5 h-5" />
                 </div>
-                <span className="font-medium text-sm">Buyer</span>
+                <span className="font-medium text-sm">{tAuth.buyer}</span>
               </button>
               
               <button
@@ -109,7 +116,7 @@ export default function RegisterPage() {
                 )}>
                   <Store className="w-5 h-5" />
                 </div>
-                <span className="font-medium text-sm">Seller</span>
+                <span className="font-medium text-sm">{tAuth.seller}</span>
               </button>
             </div>
 
@@ -121,7 +128,7 @@ export default function RegisterPage() {
                 id="name"
                 type="text"
                 required
-                placeholder="Full Name"
+                placeholder={tAuth.fullName}
                 className="pl-11"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -136,7 +143,7 @@ export default function RegisterPage() {
                 id="email"
                 type="email"
                 required
-                placeholder="Email address"
+                placeholder={tAuth.email}
                 className="pl-11"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -151,7 +158,7 @@ export default function RegisterPage() {
                 id="password"
                 type="password"
                 required
-                placeholder="Password (min 6 chars)"
+                placeholder={`${tAuth.password} (min 6 chars)`}
                 className="pl-11"
                 minLength={6}
                 value={password}
@@ -161,13 +168,13 @@ export default function RegisterPage() {
           </div>
 
           <Button type="submit" className="w-full" loading={loading} size="lg">
-            Create account
+            {tAuth.signUp}
           </Button>
           
           <div className="text-center text-sm text-surface-500">
-            Already have an account?{' '}
+            {tAuth.hasAccount}{' '}
             <Link href="/login" className="font-semibold text-primary-600 hover:text-primary-500 hover:underline">
-              Sign in
+              {tAuth.signIn}
             </Link>
           </div>
         </form>

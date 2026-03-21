@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Trash2, ShoppingBag, Plus, Minus, ArrowLeft } from 'lucide-react';
 import { useCartStore } from '@/stores/cart-store';
+import { useLanguageStore } from '@/stores/language-store';
+import { dictionaries } from '@/lib/i18n/dictionaries';
 import Button from '@/components/ui/Button';
 import { formatPrice } from '@/lib/utils';
 import { createClient } from '@/lib/supabase/client';
@@ -16,6 +18,9 @@ export default function CartPage() {
   const [loading, setLoading] = useState(false);
   const { items, removeItem, updateQuantity, getTotals } = useCartStore();
   const { subtotal } = getTotals();
+  const { language } = useLanguageStore();
+  const tCart = dictionaries[language].cart;
+  const tCommon = dictionaries[language].common;
 
   // Wait for client mount to read Zustand store to avoid hydration errors
   useEffect(() => {
@@ -41,13 +46,13 @@ export default function CartPage() {
   if (items.length === 0) {
     return (
       <div className="container-custom max-w-4xl py-16 animate-fade-in">
-        <h1 className="text-3xl font-bold text-surface-900 mb-8">Shopping Cart</h1>
+        <h1 className="text-3xl font-bold text-surface-900 mb-8">{tCart.title}</h1>
         <div className="glass rounded-3xl p-12 text-center text-surface-500">
           <ShoppingBag className="w-16 h-16 mx-auto mb-6 text-surface-300" />
-          <h2 className="text-xl font-semibold text-surface-900 mb-2">Your cart is empty</h2>
-          <p className="mb-8">Looks like you haven't added anything to your cart yet.</p>
+          <h2 className="text-xl font-semibold text-surface-900 mb-2">{tCart.emptyTitle}</h2>
+          <p className="mb-8">{tCart.emptyDesc}</p>
           <Link href="/products" className="inline-block">
-            <Button size="lg">Start Shopping</Button>
+            <Button size="lg">{tCart.startShopping}</Button>
           </Link>
         </div>
       </div>
@@ -57,18 +62,18 @@ export default function CartPage() {
   return (
     <div className="container-custom max-w-6xl py-8 animate-fade-in">
       <Link href="/products" className="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-surface-900 mb-6 transition-colors">
-        <ArrowLeft className="w-4 h-4" /> Continue shopping
+        <ArrowLeft className="w-4 h-4" /> {tCart.startShopping}
       </Link>
 
-      <h1 className="text-3xl font-bold text-surface-900 mb-8">Shopping Cart</h1>
+      <h1 className="text-3xl font-bold text-surface-900 mb-8">{tCart.title}</h1>
 
       <div className="grid lg:grid-cols-3 gap-8 items-start">
         <div className="lg:col-span-2 space-y-4">
           <div className="glass rounded-3xl overflow-hidden hidden sm:block">
             <div className="grid grid-cols-12 gap-4 border-b border-surface-200 dark:border-surface-800 px-6 py-4 bg-surface-50/50 dark:bg-surface-800/80">
-              <div className="col-span-6 font-medium text-surface-600 text-sm uppercase tracking-wider">Product</div>
-              <div className="col-span-3 font-medium text-surface-600 text-sm uppercase tracking-wider text-center">Quantity</div>
-              <div className="col-span-3 font-medium text-surface-600 text-sm uppercase tracking-wider text-right">Total</div>
+              <div className="col-span-6 font-medium text-surface-600 text-sm uppercase tracking-wider">{tCart.product}</div>
+              <div className="col-span-3 font-medium text-surface-600 text-sm uppercase tracking-wider text-center">{tCart.quantity}</div>
+              <div className="col-span-3 font-medium text-surface-600 text-sm uppercase tracking-wider text-right">{tCart.total}</div>
             </div>
           </div>
 
@@ -118,7 +123,7 @@ export default function CartPage() {
                    </div>
 
                    <div className="w-full sm:col-span-3 flex justify-between sm:justify-end items-center">
-                     <span className="text-sm text-surface-500 sm:hidden">Total:</span>
+                     <span className="text-sm text-surface-500 sm:hidden">{tCart.total}:</span>
                      <div className="font-bold text-surface-900 sm:text-lg">
                        {formatPrice(item.product.price * item.quantity)}
                      </div>
@@ -138,7 +143,7 @@ export default function CartPage() {
 
         {/* Order Summary */}
         <div className="glass rounded-3xl p-6 lg:p-8 sticky top-24 shadow-sm border-t-4 border-t-primary-500">
-          <h2 className="text-xl font-bold text-surface-900 mb-6">Order Summary</h2>
+          <h2 className="text-xl font-bold text-surface-900 mb-6">{tCart.orderSummary}</h2>
           
           <div className="space-y-4 mb-6 text-sm">
             <div className="flex justify-between text-surface-600">
@@ -160,7 +165,7 @@ export default function CartPage() {
           </div>
           
           <Button className="w-full shadow-primary-500/25" size="lg" onClick={handleCheckout} loading={loading}>
-            Proceed to Checkout <ArrowRight className="w-4 h-4 ml-1" />
+            {tCart.checkout} <ArrowRight className="w-4 h-4 ml-1" />
           </Button>
           
           <div className="mt-6 flex items-center justify-center gap-2 text-xs text-surface-500">

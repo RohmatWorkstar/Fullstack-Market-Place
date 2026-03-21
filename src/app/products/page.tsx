@@ -7,6 +7,7 @@ import Button from '@/components/ui/Button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { PageSpinner } from '@/components/ui/Spinner';
+import Translate from '@/components/Translate';
 
 export const dynamic = 'force-dynamic';
 
@@ -41,7 +42,7 @@ export default async function ProductsPage({
         <aside className="w-full md:w-64 flex-shrink-0">
           <div className="glass rounded-3xl p-6 sticky top-24">
             <h2 className="text-lg font-bold text-surface-900 dark:text-surface-50 mb-6 flex items-center gap-2">
-              <Filter className="w-5 h-5" /> Filters
+              <Filter className="w-5 h-5" /> <Translate section="products" textKey="filters" />
             </h2>
             
             <div className="space-y-4">
@@ -57,7 +58,7 @@ export default async function ProductsPage({
                         : 'text-surface-600 hover:bg-surface-50 dark:hover:bg-surface-800 dark:text-surface-400'
                     )}
                   >
-                    All Categories
+                    <Translate section="products" textKey="allCategories" />
                   </Link>
                   {CATEGORIES.map((cat) => (
                     <Link
@@ -84,7 +85,7 @@ export default async function ProductsPage({
           <div className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl font-bold text-surface-900 dark:text-surface-50">
-                {categoryFilter && categoryFilter !== 'all' ? categoryFilter : 'All Products'}
+                {categoryFilter && categoryFilter !== 'all' ? categoryFilter : <Translate section="products" textKey="allProducts" />}
               </h1>
               <p className="text-surface-500 mt-1">
                 {products?.length || 0} result{products?.length !== 1 ? 's' : ''} found
@@ -108,11 +109,11 @@ export default async function ProductsPage({
             {!products || products.length === 0 ? (
               <div className="text-center py-16 glass rounded-3xl">
                 <ShoppingBag className="w-12 h-12 text-surface-300 mx-auto mb-4" />
-                <h3 className="text-lg font-medium text-surface-900 dark:text-surface-50">No products found</h3>
-                <p className="text-surface-500 mt-1">Try adjusting your search or filters.</p>
+                <h3 className="text-lg font-medium text-surface-900 dark:text-surface-50"><Translate section="products" textKey="noProducts" /></h3>
+                <p className="text-surface-500 mt-1"><Translate section="products" textKey="tryAdjusting" /></p>
                 {(query || categoryFilter) && (
                   <Link href="/products" className="mt-6 inline-block">
-                    <Button variant="outline">Clear all filters</Button>
+                    <Button variant="outline"><Translate section="products" textKey="clearFilters" /></Button>
                   </Link>
                 )}
               </div>

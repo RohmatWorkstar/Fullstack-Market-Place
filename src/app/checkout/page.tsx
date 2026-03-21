@@ -8,6 +8,8 @@ import Button from '@/components/ui/Button';
 import { formatPrice } from '@/lib/utils';
 import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
+import { useLanguageStore } from '@/stores/language-store';
+import { dictionaries } from '@/lib/i18n/dictionaries';
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -15,6 +17,7 @@ export default function CheckoutPage() {
   const [loading, setLoading] = useState(false);
   const { items, clearCart, getTotals } = useCartStore();
   const { subtotal } = getTotals();
+  const { language } = useLanguageStore();
 
   useEffect(() => {
     setMounted(true);
@@ -78,10 +81,12 @@ export default function CheckoutPage() {
 
   if (!mounted) return null;
 
+  const tCheckout = dictionaries[language].checkout;
+
   if (items.length === 0) {
     return (
       <div className="container-custom max-w-4xl py-16 text-center">
-        <h1 className="text-2xl font-bold mb-4">Checkout</h1>
+        <h1 className="text-2xl font-bold mb-4">{tCheckout.title}</h1>
         <p className="text-surface-500 mb-8">Your cart is empty.</p>
         <Link href="/products"><Button>Go Shopping</Button></Link>
       </div>
@@ -97,7 +102,7 @@ export default function CheckoutPage() {
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
         <div className="space-y-8">
           <div>
-            <h1 className="text-3xl font-bold text-surface-900 mb-2">Checkout</h1>
+            <h1 className="text-3xl font-bold text-surface-900 mb-2">{tCheckout.title}</h1>
             <p className="text-surface-500">Review your order details below.</p>
           </div>
 
@@ -121,7 +126,7 @@ export default function CheckoutPage() {
 
         <div className="space-y-6">
           <div className="glass bg-primary-50/30 rounded-3xl p-6 sm:p-8 sticky top-24">
-            <h2 className="text-lg font-bold text-surface-900 mb-6">Payment Summary</h2>
+            <h2 className="text-lg font-bold text-surface-900 mb-6">{tCheckout.orderSummary}</h2>
             
             <div className="space-y-3 mb-6 text-sm">
               <div className="flex justify-between text-surface-600">
@@ -146,7 +151,7 @@ export default function CheckoutPage() {
             </div>
             
             <Button className="w-full shadow-primary-500/25" size="lg" onClick={handlePlaceOrder} loading={loading}>
-              <CheckCircle className="w-5 h-5 mr-2 -ml-2" /> Place Order
+              <CheckCircle className="w-5 h-5 mr-2 -ml-2" /> {tCheckout.placeOrder}
             </Button>
             
             <div className="mt-4 flex items-center justify-center gap-2 text-xs text-surface-500">

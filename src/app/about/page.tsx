@@ -1,4 +1,5 @@
 import { ShieldCheck, Truck, Users, Zap } from 'lucide-react';
+import Translate from '@/components/Translate';
 
 export default function AboutPage() {
   return (
@@ -6,10 +7,10 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="text-center max-w-3xl mx-auto space-y-6">
         <h1 className="text-4xl md:text-5xl font-bold text-surface-900 tracking-tight">
-          Redefining the <span className="gradient-text">Marketplace</span> Experience
+          <Translate section="about" textKey="title" />
         </h1>
         <p className="text-lg text-surface-600 leading-relaxed">
-          We believe in creating a seamless, secure, and beautiful platform that connects independent verified sellers with buyers across the globe. Our mission is to empower creators and provide a curated shopping experience.
+          <Translate section="about" textKey="subtitle" />
         </p>
       </section>
 
@@ -41,23 +42,23 @@ export default function AboutPage() {
           {[
             {
               icon: <ShieldCheck className="w-6 h-6 text-emerald-500" />,
-              title: "Trust & Security",
-              description: "Every seller is verified. Every transaction is protected."
+              title: <Translate section="about" textKey="security" />,
+              description: <Translate section="about" textKey="securityDesc" />
             },
             {
               icon: <Zap className="w-6 h-6 text-amber-500" />,
-              title: "Fast & Modern",
-              description: "Built on the latest tech stack for lightning-fast performance."
+              title: <Translate section="about" textKey="speed" />,
+              description: <Translate section="about" textKey="speedDesc" />
             },
             {
               icon: <Users className="w-6 h-6 text-blue-500" />,
-              title: "Community First",
-              description: "We put our buyers and sellers at the center of our decisions."
+              title: <Translate section="about" textKey="vision" />,
+              description: <Translate section="about" textKey="visionDesc" />
             },
             {
               icon: <Truck className="w-6 h-6 text-purple-500" />,
-              title: "Global Reach",
-              description: "Connecting local creators with a worldwide audience."
+              title: <Translate section="about" textKey="community" />,
+              description: <Translate section="about" textKey="communityDesc" />
             }
           ].map((value, i) => (
             <div key={i} className="bg-surface-50 dark:bg-surface-800/80 rounded-3xl p-6 border border-surface-100 dark:border-surface-700 hover-lift">

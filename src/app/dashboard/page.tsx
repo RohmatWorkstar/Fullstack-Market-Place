@@ -7,6 +7,7 @@ import Badge from '@/components/ui/Badge';
 import EmptyState from '@/components/ui/EmptyState';
 import { formatPrice, formatDate } from '@/lib/utils';
 import DeleteProductButton from './DeleteProductButton';
+import Translate from '@/components/Translate';
 
 export default async function DashboardPage() {
   const supabase = createClient();
@@ -24,12 +25,12 @@ export default async function DashboardPage() {
     <div className="space-y-6 animate-fade-in">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 glass p-6 rounded-3xl">
         <div>
-          <h1 className="text-2xl font-bold text-surface-900 dark:text-surface-50">My Products</h1>
-          <p className="text-surface-500">Manage your inventory and listings</p>
+          <h1 className="text-2xl font-bold text-surface-900 dark:text-surface-50"><Translate section="dashboard" textKey="title" /></h1>
+          <p className="text-surface-500"><Translate section="dashboard" textKey="subtitle" /></p>
         </div>
         <Link href="/dashboard/products/new">
           <Button className="w-full sm:w-auto shadow-primary-500/25">
-            <PackagePlus className="w-5 h-5" /> Add New Product
+            <PackagePlus className="w-5 h-5" /> <Translate section="dashboard" textKey="addNew" />
           </Button>
         </Link>
       </div>
@@ -53,11 +54,11 @@ export default async function DashboardPage() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-surface-50/50 dark:bg-surface-800/50 border-b border-surface-200 dark:border-surface-800 text-sm font-medium text-surface-500 dark:text-surface-400">
-                  <th className="p-4 pl-6">Product</th>
-                  <th className="p-4">Price</th>
-                  <th className="p-4">Status</th>
+                  <th className="p-4 pl-6"><Translate section="dashboard" textKey="product" /></th>
+                  <th className="p-4"><Translate section="dashboard" textKey="price" /></th>
+                  <th className="p-4"><Translate section="dashboard" textKey="status" /></th>
                   <th className="p-4">Added</th>
-                  <th className="p-4 pr-6 text-right">Actions</th>
+                  <th className="p-4 pr-6 text-right"><Translate section="dashboard" textKey="actions" /></th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-surface-100">
@@ -83,9 +84,9 @@ export default async function DashboardPage() {
                     </td>
                     <td className="p-4">
                       {product.stock > 0 ? (
-                        <Badge variant="success">In Stock ({product.stock})</Badge>
+                        <Badge variant="success"><Translate section="dashboard" textKey="inStock" /> ({product.stock})</Badge>
                       ) : (
-                        <Badge variant="danger">Out of Stock</Badge>
+                        <Badge variant="danger"><Translate section="dashboard" textKey="outOfStock" /></Badge>
                       )}
                     </td>
                     <td className="p-4 text-sm text-surface-500">

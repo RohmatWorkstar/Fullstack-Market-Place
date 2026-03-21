@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button';
 import Badge from '@/components/ui/Badge';
 import { formatPrice, formatDate } from '@/lib/utils';
 import EmptyState from '@/components/ui/EmptyState';
+import Translate from '@/components/Translate';
 
 export default async function OrdersPage() {
   const supabase = createClient();
@@ -24,8 +25,8 @@ export default async function OrdersPage() {
     <div className="container-custom max-w-4xl py-8 animate-fade-in">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-surface-900">Order History</h1>
-          <p className="text-surface-500">View and track your previous orders</p>
+          <h1 className="text-3xl font-bold text-surface-900"><Translate section="orders" textKey="title" /></h1>
+          <p className="text-surface-500"><Translate section="orders" textKey="subtitle" /></p>
         </div>
       </div>
 
@@ -33,11 +34,11 @@ export default async function OrdersPage() {
          <div className="glass rounded-3xl">
            <EmptyState
              icon={<Package className="w-12 h-12" />}
-             title="No orders yet"
-             description="You haven't placed any orders. Start browsing our marketplace!"
+             title={<Translate section="orders" textKey="noOrders" />}
+             description={<Translate section="orders" textKey="noOrdersDesc" />}
              action={
                <Link href="/products">
-                 <Button>Browse Products</Button>
+                 <Button><Translate section="orders" textKey="browse" /></Button>
                </Link>
              }
            />
@@ -82,7 +83,7 @@ export default async function OrdersPage() {
                      
                      <Link href={`/orders/${order.id}`}>
                         <Button variant="outline" size="sm" className="w-full sm:w-auto">
-                           View Details <ArrowRight className="w-4 h-4" />
+                           <Translate section="orders" textKey="viewDetails" /> <ArrowRight className="w-4 h-4 ml-1" />
                         </Button>
                      </Link>
                   </div>

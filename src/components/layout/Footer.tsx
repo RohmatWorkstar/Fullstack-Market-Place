@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Translate from '@/components/Translate';
 
 export default function Footer() {
   return (
@@ -10,20 +11,20 @@ export default function Footer() {
               Marketplace
             </Link>
             <p className="text-surface-500 text-sm mt-2">
-              Portfolio project built with Next.js & Supabase.
+              <Translate section="footer" textKey="tagline" />
             </p>
           </div>
           
           <div className="flex space-x-6 text-sm text-surface-500">
-            <Link href="/about" className="hover:text-primary-600 transition-colors">About</Link>
-            <Link href="/terms" className="hover:text-primary-600 transition-colors">Terms</Link>
-            <Link href="/privacy" className="hover:text-primary-600 transition-colors">Privacy</Link>
-            <Link href="/contact" className="hover:text-primary-600 transition-colors">Contact</Link>
+            <Link href="/about" className="hover:text-primary-600 transition-colors"><Translate section="footer" textKey="aboutUs" /></Link>
+            <Link href="/terms" className="hover:text-primary-600 transition-colors"><Translate section="footer" textKey="termsOfService" /></Link>
+            <Link href="/privacy" className="hover:text-primary-600 transition-colors"><Translate section="footer" textKey="privacyPolicy" /></Link>
+            <Link href="/contact" className="hover:text-primary-600 transition-colors"><Translate section="footer" textKey="contactSupport" /></Link>
           </div>
         </div>
         
         <div className="mt-8 pt-8 border-t border-surface-100 text-center text-sm text-surface-400">
-          &copy; {new Date().getFullYear()} Marketplace Portfolio. All rights reserved.
+          &copy; {new Date().getFullYear()} Marketplace Portfolio. <Translate section="footer" textKey="rights" />
         </div>
       </div>
     </footer>

@@ -3,6 +3,7 @@ import { ArrowRight, ShoppingBag, ShieldCheck, Zap, Package } from 'lucide-react
 import Button from '@/components/ui/Button';
 import ProductCard from '@/components/products/ProductCard';
 import { createClient } from '@/lib/supabase/server';
+import Translate from '@/components/Translate';
 
 export default async function Home() {
   const supabase = createClient();
@@ -25,26 +26,26 @@ export default async function Home() {
           <div className="max-w-3xl space-y-8">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-surface-900 border border-primary-100 dark:border-primary-900/50 text-sm font-medium text-primary-700 dark:text-primary-400 shadow-sm animate-slide-up" style={{ animationDelay: '0ms' }}>
               <span className="flex h-2 w-2 rounded-full bg-primary-600 animate-pulse" />
-              Next.js 14 App Router
+              <Translate section="home" textKey="tagline" />
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-surface-900 dark:text-surface-50 text-balance animate-slide-up" style={{ animationDelay: '100ms' }}>
-              Discover amazing products from <span className="gradient-text">verified sellers</span>
+              <Translate section="home" textKey="heroTitle" />
             </h1>
             
             <p className="text-lg text-surface-600 max-w-2xl leading-relaxed animate-slide-up" style={{ animationDelay: '200ms' }}>
-              A modern, production-ready marketplace portfolio built with the latest web technologies. Experience seamless shopping and secure transactions.
+              <Translate section="home" textKey="heroSubtitle" />
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{ animationDelay: '300ms' }}>
               <Link href="/products">
                 <Button size="lg" className="w-full sm:w-auto">
-                  Start Shopping <ArrowRight className="w-5 h-5" />
+                  <Translate section="home" textKey="startShopping" /> <ArrowRight className="w-5 h-5" />
                 </Button>
               </Link>
               <Link href="/register">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto bg-white dark:bg-surface-900">
-                  Become a Seller
+                  <Translate section="home" textKey="becomeSeller" />
                 </Button>
               </Link>
             </div>
@@ -58,18 +59,18 @@ export default async function Home() {
           {[
             {
               icon: <ShoppingBag className="w-6 h-6 text-primary-600" />,
-              title: "Discover Unique Items",
-              description: "Browse thousands of high-quality products from independent sellers."
+              title: <Translate section="home" textKey="features" />,
+              description: <Translate section="home" textKey="heroSubtitle" />
             },
             {
               icon: <Zap className="w-6 h-6 text-amber-500" />,
-              title: "Fast & Modern",
-              description: "Built on Next.js App Router for lightning-fast page loads and SEO optimization."
+              title: <Translate section="home" textKey="securePayments" />,
+              description: <Translate section="home" textKey="securePaymentsDesc" />
             },
             {
               icon: <ShieldCheck className="w-6 h-6 text-emerald-500" />,
-              title: "Secure Verification",
-              description: "Every seller is verified, ensuring a safe and reliable shopping experience."
+              title: <Translate section="home" textKey="verifiedSellers" />,
+              description: <Translate section="home" textKey="verifiedSellersDesc" />
             }
           ].map((feature, i) => (
             <div key={i} className="p-6 rounded-3xl bg-surface-50 dark:bg-surface-800/80 border border-surface-100/50 dark:border-surface-700 hover-lift">
@@ -87,11 +88,11 @@ export default async function Home() {
       <section className="container-custom">
         <div className="flex items-center justify-between mb-10">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-surface-900 dark:text-surface-50">New Arrivals</h2>
-            <p className="mt-2 text-surface-500">The latest items added to our marketplace</p>
+            <h2 className="text-3xl font-bold tracking-tight text-surface-900 dark:text-surface-50"><Translate section="home" textKey="newArrivals" /></h2>
+            <p className="mt-2 text-surface-500"><Translate section="home" textKey="newArrivalsDesc" /></p>
           </div>
           <Link href="/products" className="hidden sm:flex group items-center gap-2 text-primary-600 font-medium hover:text-primary-700 transition-colors">
-            View all <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <Translate section="home" textKey="viewAll" /> <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
@@ -104,10 +105,10 @@ export default async function Home() {
         ) : (
           <div className="text-center py-12 bg-surface-50 dark:bg-surface-800/50 rounded-3xl border border-surface-100 dark:border-surface-700 border-dashed">
             <Package className="w-12 h-12 text-surface-400 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-surface-900 dark:text-surface-50">No products yet</h3>
-            <p className="text-surface-500 mt-1">Be the first to add a product!</p>
+            <h3 className="text-lg font-medium text-surface-900 dark:text-surface-50"><Translate section="home" textKey="noProductsYet" /></h3>
+            <p className="text-surface-500 mt-1"><Translate section="home" textKey="noProductsDesc" /></p>
             <Link href="/register" className="mt-4 inline-block">
-              <Button variant="outline">Create a seller account</Button>
+              <Button variant="outline"><Translate section="home" textKey="createSellerAccount" /></Button>
             </Link>
           </div>
         )}
@@ -115,7 +116,7 @@ export default async function Home() {
         <div className="mt-10 sm:hidden">
           <Link href="/products" className="w-full">
             <Button variant="outline" className="w-full justify-between">
-              View all products <ArrowRight className="w-4 h-4" />
+              <Translate section="home" textKey="viewAll" /> <ArrowRight className="w-4 h-4" />
             </Button>
           </Link>
         </div>

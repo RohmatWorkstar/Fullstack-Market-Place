@@ -9,6 +9,8 @@ import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { Alert } from '@/components/ui/EmptyState';
 import type { Profile } from '@/lib/types';
+import { useLanguageStore } from '@/stores/language-store';
+import { dictionaries } from '@/lib/i18n/dictionaries';
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -20,8 +22,11 @@ export default function ProfilePage() {
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [mounted, setMounted] = useState(false);
+  const { language } = useLanguageStore();
 
   useEffect(() => {
+    setMounted(true);
     async function loadProfile() {
       const supabase = createClient();
       const { data: { user } } = await supabase.auth.getUser();
@@ -113,6 +118,9 @@ export default function ProfilePage() {
     }
   };
 
+  const tProfile = mounted ? dictionaries[language].profile : dictionaries.en.profile;
+  const tCommon = mounted ? dictionaries[language].common : dictionaries.en.common;
+
   if (loading) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
@@ -124,7 +132,7 @@ export default function ProfilePage() {
   return (
     <div className="container-custom max-w-3xl py-12 animate-fade-in">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-surface-900">My Profile</h1>
+        <h1 className="text-3xl font-bold text-surface-900">{tProfile.title}</h1>
         <p className="text-surface-500 mt-2">Manage your personal information and preferences.</p>
       </div>
 
@@ -162,7 +170,7 @@ export default function ProfilePage() {
             </div>
             
             <div className="space-y-3 pt-2">
-              <h3 className="text-lg font-medium text-surface-900">Profile Picture</h3>
+              <h3 className="text-lg font-medium text-surface-900">{tProfile.profilePic}</h3>
               <div className="inline-block">
                 <Button 
                   type="button" 
@@ -193,7 +201,7 @@ export default function ProfilePage() {
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Input
-                label="Full Name"
+                label={tProfile.fullName}
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 required
@@ -201,7 +209,7 @@ export default function ProfilePage() {
               />
               
               <Input
-                label="Role"
+                label={tProfile.role}
                 value={profile?.role || ''}
                 disabled
                 className="capitalize bg-surface-50 text-surface-500"
@@ -212,7 +220,7 @@ export default function ProfilePage() {
           <div className="pt-4 flex justify-end">
             <Button type="submit" loading={saving || uploading} size="lg">
               <Save className="w-4 h-4 mr-2" />
-              Save Changes
+              {tCommon.save}
             </Button>
           </div>
         </form>

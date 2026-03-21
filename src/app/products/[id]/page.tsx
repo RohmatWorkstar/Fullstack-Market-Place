@@ -6,6 +6,7 @@ import { createClient } from '@/lib/supabase/server';
 import { formatPrice } from '@/lib/utils';
 import AddToCartButton from './AddToCartButton';
 import Badge from '@/components/ui/Badge';
+import Translate from '@/components/Translate';
 
 export default async function ProductDetailPage({
   params,
@@ -26,7 +27,7 @@ export default async function ProductDetailPage({
   return (
     <div className="container-custom py-8 animate-fade-in">
       <Link href="/products" className="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-surface-900 dark:hover:text-surface-50 mb-8 transition-colors">
-        <ArrowLeft className="w-4 h-4" /> Back to products
+        <ArrowLeft className="w-4 h-4" /> <Translate section="products" textKey="backToProducts" />
       </Link>
 
       <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
@@ -43,7 +44,7 @@ export default async function ProductDetailPage({
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center text-surface-400">
-              No image available
+              <Translate section="products" textKey="noImage" />
             </div>
           )}
         </div>
@@ -61,7 +62,7 @@ export default async function ProductDetailPage({
           </div>
 
           <div className="prose prose-surface max-w-none text-surface-600 mb-8">
-            <p className="whitespace-pre-wrap">{product.description || 'No description provided.'}</p>
+            <p className="whitespace-pre-wrap">{product.description || <Translate section="products" textKey="noDesc" />}</p>
           </div>
 
           <div className="bg-surface-50 dark:bg-surface-800/50 rounded-2xl p-6 border border-surface-200 dark:border-surface-700 mb-8 space-y-4">
@@ -78,27 +79,27 @@ export default async function ProductDetailPage({
                   <Store className="w-4 h-4 text-surface-400" />
                   {product.seller?.full_name || 'Unknown Seller'}
                 </p>
-                <p className="text-xs text-surface-500">Verified Seller</p>
+                <p className="text-xs text-surface-500"><Translate section="products" textKey="verifiedSeller" /></p>
               </div>
             </div>
             
             <div className="flex gap-4 pt-4 border-t border-surface-200/60">
                <div className="flex items-center gap-2 text-xs text-surface-600">
-                 <ShieldCheck className="w-4 h-4 text-emerald-500" /> Secure transaction
+                 <ShieldCheck className="w-4 h-4 text-emerald-500" /> <Translate section="products" textKey="secureTrans" />
                </div>
                <div className="flex items-center gap-2 text-xs text-surface-600">
-                 <HelpCircle className="w-4 h-4 text-blue-500" /> Buyer protection
+                 <HelpCircle className="w-4 h-4 text-blue-500" /> <Translate section="products" textKey="buyerProtect" />
                </div>
             </div>
           </div>
 
           <div className="mt-auto space-y-6">
             <div className="flex items-center justify-between text-sm">
-               <span className="text-surface-600 font-medium">Availability</span>
+               <span className="text-surface-600 font-medium"><Translate section="dashboard" textKey="status" /></span>
                {product.stock > 0 ? (
-                 <span className="text-emerald-600 font-medium bg-emerald-50 px-3 py-1 rounded-full">In Stock ({product.stock})</span>
+                 <span className="text-emerald-600 font-medium bg-emerald-50 px-3 py-1 rounded-full"><Translate section="dashboard" textKey="inStock" /> ({product.stock})</span>
                ) : (
-                 <span className="text-red-600 font-medium bg-red-50 px-3 py-1 rounded-full">Out of Stock</span>
+                 <span className="text-red-600 font-medium bg-red-50 px-3 py-1 rounded-full"><Translate section="dashboard" textKey="outOfStock" /></span>
                )}
             </div>
 
