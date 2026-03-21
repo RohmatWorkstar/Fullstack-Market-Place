@@ -19,9 +19,10 @@ export default async function Home() {
     <div className="space-y-24 pb-16 animate-fade-in">
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-20 pb-28 md:pt-32 md:pb-48">
-        <div className="absolute inset-0 bg-surface-50 dark:bg-surface-950">
-           <div className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-center opacity-10 dark:opacity-30" />
-           <div className="absolute inset-0 bg-gradient-to-r from-surface-50 dark:from-surface-950 via-surface-50/80 dark:via-surface-950/80 to-transparent" />
+        <div className="absolute inset-0 bg-primary-50/40 dark:bg-surface-900/40">
+           <div className="absolute inset-0 bg-[url('/hero.png')] bg-cover bg-center opacity-0.2 dark:opacity-[0.2]" />
+           <div className="absolute inset-0 bg-gradient-to-r from-primary-50/80 dark:from-surface-900/80 via-primary-50/50 dark:via-surface-900/50 to-transparent" />
+           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-surface-50 dark:from-surface-950 to-transparent" />
         </div>
         
         <div className="container-custom relative">
@@ -46,7 +47,7 @@ export default async function Home() {
                 </Button>
               </Link>
               <Link href="/register">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto bg-surface-50 dark:bg-surface-900">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto bg-white/80 dark:bg-surface-800/80 backdrop-blur-sm hover:bg-white dark:hover:bg-surface-800">
                   <Translate section="home" textKey="becomeSeller" />
                 </Button>
               </Link>
@@ -75,12 +76,12 @@ export default async function Home() {
               description: <Translate section="home" textKey="verifiedSellersDesc" />
             }
           ].map((feature, i) => (
-            <div key={i} className="p-6 rounded-3xl bg-surface-50 dark:bg-surface-800/80 border border-surface-100/50 dark:border-surface-700 hover-lift">
-              <div className="w-12 h-12 rounded-2xl bg-surface-50 dark:bg-surface-900 shadow-sm border border-surface-100 dark:border-surface-800 flex items-center justify-center mb-6">
+            <div key={i} className="p-6 rounded-3xl bg-surface-100 dark:bg-surface-900 border border-surface-100 dark:border-surface-800 shadow-sm hover-lift">
+              <div className="w-12 h-12 rounded-2xl bg-primary-50 dark:bg-surface-800 border border-primary-100/50 dark:border-surface-700 flex items-center justify-center mb-6">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold text-surface-900 dark:text-surface-50 mb-2">{feature.title}</h3>
-              <p className="text-surface-600 dark:text-surface-300 leading-relaxed">{feature.description}</p>
+              <p className="text-surface-600 dark:text-surface-400 leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -105,8 +106,8 @@ export default async function Home() {
             ))}
           </div>
         ) : (
-          <div className="text-center py-12 bg-surface-50 dark:bg-surface-800/50 rounded-3xl border border-surface-100 dark:border-surface-700 border-dashed">
-            <Package className="w-12 h-12 text-surface-400 mx-auto mb-4" />
+          <div className="text-center py-12 bg-white dark:bg-surface-900 rounded-3xl border border-surface-200 dark:border-surface-800 border-dashed shadow-sm">
+            <Package className="w-12 h-12 text-surface-400 dark:text-surface-500 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-surface-900 dark:text-surface-100"><Translate section="home" textKey="noProductsYet" /></h3>
             <p className="text-surface-500 dark:text-surface-400 mt-1"><Translate section="home" textKey="noProductsDesc" /></p>
             <Link href="/register" className="mt-4 inline-block">
