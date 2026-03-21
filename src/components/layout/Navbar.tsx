@@ -9,6 +9,10 @@ import { createClient } from '@/lib/supabase/client';
 import type { Profile } from '@/lib/types';
 import Button from '../ui/Button';
 import { useCartStore } from '@/stores/cart-store';
+import { useLanguageStore } from '@/stores/language-store';
+import { dictionaries } from '@/lib/i18n/dictionaries';
+import ThemeToggle from '../ThemeToggle';
+import LanguageToggle from '../LanguageToggle';
 
 /**
  * ## Phase 8: Cart System
@@ -26,6 +30,8 @@ export default function Navbar() {
   
   const { getTotals } = useCartStore();
   const cartItemCount = mounted ? getTotals().itemCount : 0;
+  const { language } = useLanguageStore();
+  const t = dictionaries[language].navbar;
 
   useEffect(() => {
     setMounted(true);
@@ -100,14 +106,18 @@ export default function Navbar() {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-surface-400 group-focus-within:text-primary-500 transition-colors" />
               <input
                 type="text"
-                placeholder="Search products..."
-                className="w-full pl-10 pr-4 py-2 rounded-full bg-surface-100/50 border border-surface-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all placeholder:text-surface-400 text-sm"
+                placeholder={t.searchPlaceholder}
+                className="w-full pl-10 pr-4 py-2 rounded-full bg-surface-100/50 border border-surface-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all placeholder:text-surface-400 text-sm dark:bg-surface-800 dark:border-surface-700 dark:focus:bg-surface-900"
               />
             </div>
           </div>
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-4">
+            <div className="flex items-center gap-2 border-r border-surface-200 pr-4 mr-2">
+              <LanguageToggle />
+              <ThemeToggle />
+            </div>
             <Link
               href="/cart"
               className="relative p-2 text-surface-600 hover:text-primary-600 hover:bg-surface-100 rounded-full transition-colors"
@@ -127,13 +137,13 @@ export default function Navbar() {
                     {isSeller && (
                       <Link href="/dashboard">
                         <Button variant="ghost" size="sm" className="hidden lg:flex">
-                          Dashboard
+                          {t.dashboard}
                         </Button>
                       </Link>
                     )}
                     <Link href="/orders">
                       <Button variant="ghost" size="sm" className="hidden lg:flex">
-                        Orders
+                        {t.orders}
                       </Button>
                     </Link>
                     <div className="relative group cursor-pointer">
@@ -157,21 +167,21 @@ export default function Navbar() {
                         </div>
                         <div className="p-2 space-y-1">
                           {isSeller && (
-                            <Link href="/dashboard" className="flex items-center gap-2 px-3 py-2 text-sm text-surface-600 hover:text-primary-600 hover:bg-surface-50 rounded-lg lg:hidden">
-                              <Package className="w-4 h-4" /> Dashboard
+                            <Link href="/dashboard" className="flex items-center gap-2 px-3 py-2 text-sm text-surface-600 hover:text-primary-600 hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg lg:hidden">
+                              <Package className="w-4 h-4" /> {t.dashboard}
                             </Link>
                           )}
-                          <Link href="/orders" className="flex items-center gap-2 px-3 py-2 text-sm text-surface-600 hover:text-primary-600 hover:bg-surface-50 rounded-lg lg:hidden">
-                            <ShoppingCart className="w-4 h-4" /> Orders
+                          <Link href="/orders" className="flex items-center gap-2 px-3 py-2 text-sm text-surface-600 hover:text-primary-600 hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg lg:hidden">
+                            <ShoppingCart className="w-4 h-4" /> {t.orders}
                           </Link>
-                          <Link href="/profile" className="flex items-center gap-2 px-3 py-2 text-sm text-surface-600 hover:text-primary-600 hover:bg-surface-50 rounded-lg">
-                            <User className="w-4 h-4" /> Profile
+                          <Link href="/profile" className="flex items-center gap-2 px-3 py-2 text-sm text-surface-600 hover:text-primary-600 hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg">
+                            <User className="w-4 h-4" /> {t.profile}
                           </Link>
                           <button
                             onClick={handleLogout}
-                            className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg"
+                            className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg"
                           >
-                            <LogOut className="w-4 h-4" /> Logout
+                            <LogOut className="w-4 h-4" /> {t.logout}
                           </button>
                         </div>
                       </div>
@@ -180,10 +190,10 @@ export default function Navbar() {
                 ) : (
                   <div className="flex items-center gap-3">
                     <Link href="/login">
-                      <Button variant="ghost" size="sm">Log in</Button>
+                      <Button variant="ghost" size="sm">{t.login}</Button>
                     </Link>
                     <Link href="/register">
-                      <Button size="sm">Sign up</Button>
+                      <Button size="sm">{t.signup}</Button>
                     </Link>
                   </div>
                 )}
@@ -192,7 +202,9 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-4">
+          <div className="md:hidden flex items-center gap-3">
+            <LanguageToggle />
+            <ThemeToggle />
             <Link href="/cart" className="relative p-2 text-surface-600">
               <ShoppingCart className="w-5 h-5" />
               {cartItemCount > 0 && (
@@ -213,17 +225,17 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-surface-200 shadow-lg px-4 py-4 space-y-4 animate-fade-in">
+        <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-surface-900 border-b border-surface-200 dark:border-surface-800 shadow-lg px-4 py-4 space-y-4 animate-fade-in">
           <div className="relative w-full">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-surface-400" />
             <input
               type="text"
-              placeholder="Search products..."
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-50 border border-surface-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+              placeholder={t.searchPlaceholder}
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-50 border border-surface-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-surface-800 dark:border-surface-700"
             />
           </div>
           
-          <div className="pt-2 border-t border-surface-100 flex flex-col gap-2">
+          <div className="pt-2 border-t border-surface-100 dark:border-surface-800 flex flex-col gap-2">
             {!loading && profile ? (
                <>
                  <div className="px-3 py-2">
@@ -231,24 +243,24 @@ export default function Navbar() {
                     <p className="text-xs text-surface-500 capitalize">{profile.role}</p>
                  </div>
                  {isSeller && (
-                   <Link href="/dashboard" className="px-3 py-2 text-sm text-surface-600 hover:bg-surface-50 rounded-lg">
-                     Dashboard
+                   <Link href="/dashboard" className="px-3 py-2 text-sm text-surface-600 hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg">
+                     {t.dashboard}
                    </Link>
                  )}
-                 <Link href="/orders" className="px-3 py-2 text-sm text-surface-600 hover:bg-surface-50 rounded-lg">
-                   Orders
+                 <Link href="/orders" className="px-3 py-2 text-sm text-surface-600 hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg">
+                   {t.orders}
                  </Link>
-                 <button onClick={handleLogout} className="px-3 py-2 text-sm text-left text-red-600 hover:bg-red-50 rounded-lg">
-                   Logout
+                 <button onClick={handleLogout} className="px-3 py-2 text-sm text-left text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg">
+                   {t.logout}
                  </button>
                </>
             ) : (
               <div className="grid grid-cols-2 gap-3 pt-2">
                 <Link href="/login" className="w-full">
-                  <Button variant="outline" className="w-full">Log in</Button>
+                  <Button variant="outline" className="w-full">{t.login}</Button>
                 </Link>
                 <Link href="/register" className="w-full">
-                  <Button className="w-full">Sign up</Button>
+                  <Button className="w-full">{t.signup}</Button>
                 </Link>
               </div>
             )}

@@ -9,7 +9,10 @@
     @apply border-surface-200;
   }
   body {
-    @apply bg-surface-50 text-surface-900 antialiased;
+    @apply bg-surface-50 text-surface-900 antialiased transition-colors duration-300;
+  }
+  .dark body {
+    @apply bg-surface-950 text-surface-50;
   }
 }
 
@@ -20,6 +23,9 @@
 
   .glass {
     @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-lg;
+  }
+  .dark .glass {
+    @apply bg-surface-900/80 backdrop-blur-xl border border-surface-800/50 shadow-lg shadow-black/20;
   }
 
   .gradient-primary {
@@ -39,6 +45,9 @@
            text-surface-900 placeholder:text-surface-400
            focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500
            transition-all duration-200;
+  }
+  .dark .input-base {
+    @apply border-surface-800 bg-surface-900 text-surface-50 placeholder:text-surface-500;
   }
 }
 
