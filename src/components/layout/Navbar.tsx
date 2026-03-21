@@ -100,8 +100,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass py-3' : 'bg-transparent py-5'
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+        isScrolled ? 'glass py-2 border-b' : 'bg-transparent py-5'
       }`}
     >
       <div className="container-custom">
@@ -120,7 +120,7 @@ export default function Navbar() {
                 placeholder={t.searchPlaceholder}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-full bg-surface-100/50 border border-surface-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all placeholder:text-surface-400 text-sm dark:bg-surface-800 dark:border-surface-700 dark:focus:bg-surface-900"
+                className="w-full pl-10 pr-4 py-2 rounded-full bg-surface-100/50 border border-surface-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all placeholder:text-surface-400 text-sm text-surface-900 dark:text-surface-100 dark:bg-surface-800 dark:border-surface-700 dark:focus:bg-surface-900 dark:placeholder:text-surface-500"
               />
             </form>
           </div>
@@ -133,7 +133,7 @@ export default function Navbar() {
             </div>
             <Link
               href="/cart"
-              className="relative p-2 text-surface-600 hover:text-primary-600 hover:bg-surface-100 rounded-full transition-colors"
+              className="relative p-2 text-surface-600 dark:text-surface-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-full transition-colors"
             >
               <ShoppingCart className="w-5 h-5" />
               {cartItemCount > 0 && (
@@ -218,7 +218,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center gap-3">
             <LanguageToggle />
             <ThemeToggle />
-            <Link href="/cart" className="relative p-2 text-surface-600">
+            <Link href="/cart" className="relative p-2 text-surface-600 dark:text-surface-300">
               <ShoppingCart className="w-5 h-5" />
               {cartItemCount > 0 && (
                 <span className="absolute top-0 right-0 w-4 h-4 bg-primary-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center transform translate-x-1 -translate-y-1">
@@ -228,7 +228,7 @@ export default function Navbar() {
             </Link>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-surface-600"
+              className="p-2 text-surface-600 dark:text-surface-300"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -247,7 +247,7 @@ export default function Navbar() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={handleSearch}
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-50 border border-surface-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-surface-800 dark:border-surface-700"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-50 border border-surface-200 text-sm text-surface-900 dark:text-surface-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-surface-800 dark:border-surface-700 dark:placeholder:text-surface-500"
             />
           </form>
           
@@ -259,11 +259,11 @@ export default function Navbar() {
                     <p className="text-xs text-surface-500 dark:text-surface-400 capitalize">{profile.role}</p>
                  </div>
                  {isSeller && (
-                   <Link href="/dashboard" className="px-3 py-2 text-sm text-surface-600 hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg">
+                   <Link href="/dashboard" className="px-3 py-2 text-sm text-surface-600 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg">
                      {t.dashboard}
                    </Link>
                  )}
-                 <Link href="/orders" className="px-3 py-2 text-sm text-surface-600 hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg">
+                 <Link href="/orders" className="px-3 py-2 text-sm text-surface-600 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg">
                    {t.orders}
                  </Link>
                  <button onClick={handleLogout} className="px-3 py-2 text-sm text-left text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg">

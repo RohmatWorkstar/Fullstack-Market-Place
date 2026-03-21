@@ -6,7 +6,7 @@ import { createClient } from '@/lib/supabase/server';
 import Translate from '@/components/Translate';
 
 export default async function Home() {
-  const supabase = createClient();
+  const supabase = await createClient();
   
   // Fetch latest products
   const { data: featuredProducts } = await supabase
@@ -19,9 +19,9 @@ export default async function Home() {
     <div className="space-y-24 pb-16 animate-fade-in">
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-20 pb-28 md:pt-32 md:pb-48">
-        <div className="absolute inset-0 bg-surface-900">
-           <div className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-center opacity-40 dark:opacity-30" />
-           <div className="absolute inset-0 bg-gradient-to-r from-surface-900 via-surface-900/80 to-transparent" />
+        <div className="absolute inset-0 bg-surface-50 dark:bg-surface-950">
+           <div className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-center opacity-10 dark:opacity-30" />
+           <div className="absolute inset-0 bg-gradient-to-r from-surface-50 dark:from-surface-950 via-surface-50/80 dark:via-surface-950/80 to-transparent" />
         </div>
         
         <div className="container-custom relative">
@@ -31,11 +31,11 @@ export default async function Home() {
               <Translate section="home" textKey="tagline" />
             </div> */}
             
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white text-balance animate-slide-up" style={{ animationDelay: '100ms' }}>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-surface-950 dark:text-white text-balance animate-slide-up" style={{ animationDelay: '100ms' }}>
               <Translate section="home" textKey="heroTitle" />
             </h1>
             
-            <p className="text-lg text-surface-200 max-w-2xl leading-relaxed animate-slide-up" style={{ animationDelay: '200ms' }}>
+            <p className="text-lg text-surface-600 dark:text-surface-200 max-w-2xl leading-relaxed animate-slide-up" style={{ animationDelay: '200ms' }}>
               <Translate section="home" textKey="heroSubtitle" />
             </p>
             

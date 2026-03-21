@@ -115,7 +115,7 @@ export default function CartPage() {
                         <button
                           onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
                           disabled={item.quantity >= item.product.stock}
-                          className="p-1 text-surface-500 hover:text-surface-900 disabled:opacity-50"
+                          className="p-1 text-surface-500 dark:text-surface-400 hover:text-surface-900 dark:hover:text-surface-100 disabled:opacity-50"
                         >
                           <Plus className="w-3.5 h-3.5" />
                         </button>
@@ -168,10 +168,10 @@ export default function CartPage() {
             {tCart.checkout} <ArrowRight className="w-4 h-4 ml-1" />
           </Button>
           
-          <div className="mt-6 flex items-center justify-center gap-2 text-xs text-surface-500">
-            <span className="w-full h-px bg-surface-200"></span>
+          <div className="mt-6 flex items-center justify-center gap-2 text-xs text-surface-500 dark:text-surface-400">
+            <span className="w-full h-px bg-surface-200 dark:bg-surface-700"></span>
             <span className="flex-shrink-0 text-center">Secure Checkout</span>
-            <span className="w-full h-px bg-surface-200"></span>
+            <span className="w-full h-px bg-surface-200 dark:bg-surface-700"></span>
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@ export default async function ProductsPage({
   const query = searchParams.q || '';
   const categoryFilter = searchParams.category || '';
 
-  const supabase = createClient();
+  const supabase = await createClient();
   let dbQuery = supabase
     .from('products')
     .select('*, seller:profiles(full_name)')

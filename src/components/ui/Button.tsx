@@ -17,15 +17,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variants = {
       primary:
-        'bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30',
+        'bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500/50 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:-translate-y-0.5',
       secondary:
-        'bg-surface-100 dark:bg-surface-800 text-surface-700 dark:text-surface-200 hover:bg-surface-200 dark:hover:bg-surface-700 focus:ring-surface-500',
+        'bg-surface-100 dark:bg-surface-900 text-surface-900 dark:text-surface-50 hover:bg-surface-200 dark:hover:bg-surface-800 focus:ring-surface-300 dark:focus:ring-surface-700 border border-surface-200/50 dark:border-surface-800',
       outline:
-        'border-2 border-surface-200 dark:border-surface-700 text-surface-700 dark:text-surface-200 hover:bg-surface-50 dark:hover:bg-surface-800 focus:ring-primary-500',
+        'border-2 border-surface-200 dark:border-surface-800 text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-900 hover:border-primary-500/50 focus:ring-primary-500/30',
       ghost:
-        'text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 hover:text-surface-900 dark:hover:text-surface-100 focus:ring-surface-500',
+        'text-surface-600 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-900 hover:text-surface-900 dark:hover:text-surface-100 focus:ring-surface-200 dark:focus:ring-surface-800',
       danger:
-        'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 shadow-lg shadow-red-500/25',
+        'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500/50 shadow-lg shadow-red-500/20 hover:shadow-red-500/40 hover:-translate-y-0.5',
     };
 
     const sizes = {

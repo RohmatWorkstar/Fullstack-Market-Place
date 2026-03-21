@@ -13,7 +13,7 @@ export default async function ProductDetailPage({
 }: {
   params: { id: string };
 }) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: product } = await supabase
     .from('products')
     .select('*, seller:profiles(*)')
@@ -26,7 +26,7 @@ export default async function ProductDetailPage({
 
   return (
     <div className="container-custom py-8 animate-fade-in">
-      <Link href="/products" className="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-surface-900 dark:hover:text-surface-100 mb-8 transition-colors">
+      <Link href="/products" className="inline-flex items-center gap-2 text-sm text-surface-500 dark:text-surface-400 hover:text-surface-900 dark:hover:text-surface-100 mb-8 transition-colors">
         <ArrowLeft className="w-4 h-4" /> <Translate section="products" textKey="backToProducts" />
       </Link>
 

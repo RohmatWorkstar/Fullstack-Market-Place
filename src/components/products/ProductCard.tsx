@@ -11,8 +11,8 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className="group bg-white dark:bg-surface-900 rounded-2xl border border-surface-200 dark:border-surface-800 overflow-hidden hover-lift flex flex-col h-full">
-      <Link href={`/products/${product.id}`} className="relative aspect-[4/3] overflow-hidden bg-surface-100 flex-shrink-0 block">
+    <div className="group bg-white dark:bg-surface-950 rounded-3xl border border-surface-200/60 dark:border-surface-900 overflow-hidden hover-lift flex flex-col h-full shadow-sm hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-500">
+      <Link href={`/products/${product.id}`} className="relative aspect-[4/3] overflow-hidden bg-surface-50 dark:bg-surface-900 flex-shrink-0 block">
         {product.image_url ? (
           <Image
             src={product.image_url}
@@ -27,7 +27,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         )}
         <div className="absolute top-3 left-3">
-          <span className="px-2.5 py-1 text-xs font-medium bg-white/90 dark:bg-surface-900/90 backdrop-blur-sm rounded-lg text-surface-700 dark:text-surface-200 shadow-sm border border-surface-200/50 dark:border-surface-700/50">
+          <span className="px-3 py-1 text-[10px] uppercase tracking-wider font-bold bg-white/90 dark:bg-surface-950/90 backdrop-blur-md rounded-full text-surface-900 dark:text-surface-50 shadow-sm border border-surface-200/50 dark:border-surface-800">
             {product.category}
           </span>
         </div>
@@ -47,7 +47,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <span className="text-lg font-bold text-surface-900 dark:text-surface-50">
             {formatPrice(product.price)}
           </span>
-          <Button variant="secondary" size="sm" className="rounded-full w-10 h-10 p-0 hover:bg-primary-50 hover:text-primary-600 transition-colors">
+          <Button variant="secondary" size="sm" className="rounded-full w-10 h-10 p-0 border-none bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-500 transition-all duration-300">
             <ShoppingCart className="w-4 h-4" />
           </Button>
         </div>

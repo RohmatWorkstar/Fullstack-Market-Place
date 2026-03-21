@@ -10,7 +10,7 @@ import DeleteProductButton from './DeleteProductButton';
 import Translate from '@/components/Translate';
 
 export default async function DashboardPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
   if (!user) return null;
@@ -61,7 +61,7 @@ export default async function DashboardPage() {
                   <th className="p-4 pr-6 text-right"><Translate section="dashboard" textKey="actions" /></th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-surface-100">
+              <tbody className="divide-y divide-surface-100 dark:divide-surface-800">
                 {products.map((product) => (
                   <tr key={product.id} className="hover:bg-surface-50/50 dark:hover:bg-surface-800/50 transition-colors group">
                     <td className="p-4 pl-6">

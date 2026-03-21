@@ -8,7 +8,7 @@ import EmptyState from '@/components/ui/EmptyState';
 import Translate from '@/components/Translate';
 
 export default async function OrdersPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
   if (!user) return null; // Unreachable due to middleware
@@ -25,8 +25,8 @@ export default async function OrdersPage() {
     <div className="container-custom max-w-4xl py-8 animate-fade-in">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-surface-900"><Translate section="orders" textKey="title" /></h1>
-          <p className="text-surface-500"><Translate section="orders" textKey="subtitle" /></p>
+          <h1 className="text-3xl font-bold text-surface-900 dark:text-surface-50"><Translate section="orders" textKey="title" /></h1>
+          <p className="text-surface-500 dark:text-surface-400"><Translate section="orders" textKey="subtitle" /></p>
         </div>
       </div>
 
@@ -51,20 +51,20 @@ export default async function OrdersPage() {
 
              return (
                <div key={order.id} className="glass rounded-3xl p-6 sm:p-8 hover-lift border-transparent hover:border-surface-200 transition-all cursor-default">
-                  <div className="flex flex-col sm:flex-row gap-4 sm:items-center justify-between mb-4 pb-4 border-b border-surface-100">
+                  <div className="flex flex-col sm:flex-row gap-4 sm:items-center justify-between mb-4 pb-4 border-b border-surface-100 dark:border-surface-800">
                      <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-primary-50 flex items-center justify-center">
                            <Package className="w-5 h-5 text-primary-600" />
                         </div>
                         <div>
-                           <p className="text-sm font-medium text-surface-900">Order #{order.id.substring(0, 8)}</p>
-                           <p className="text-xs text-surface-500 flex items-center gap-1">
+                           <p className="text-sm font-medium text-surface-900 dark:text-surface-50">Order #{order.id.substring(0, 8)}</p>
+                           <p className="text-xs text-surface-500 dark:text-surface-400 flex items-center gap-1">
                               <Clock className="w-3 h-3" /> {formatDate(order.created_at)}
                            </p>
                         </div>
                      </div>
                      <div className="flex sm:flex-col items-center justify-between sm:items-end gap-2">
-                        <div className="font-bold text-surface-900">{formatPrice(order.total)}</div>
+                        <div className="font-bold text-surface-900 dark:text-surface-50">{formatPrice(order.total)}</div>
                         <Badge variant={order.status === 'paid' ? 'success' : order.status === 'cancelled' ? 'danger' : 'warning'}>
                            {order.status}
                         </Badge>
@@ -72,10 +72,10 @@ export default async function OrdersPage() {
                   </div>
 
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                     <p className="text-sm text-surface-600">
+                     <p className="text-sm text-surface-600 dark:text-surface-300">
                         {previewItem ? (
                            <>
-                             Contains: <span className="font-medium text-surface-900">{previewItem.product_name}</span>
+                             Contains: <span className="font-medium text-surface-900 dark:text-surface-50">{previewItem.product_name}</span>
                              {itemCount > 1 && ` and ${itemCount - 1} other item${itemCount > 2 ? 's' : ''}`}
                            </>
                         ) : `${itemCount} items`}
