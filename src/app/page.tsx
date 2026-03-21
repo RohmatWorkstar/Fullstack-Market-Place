@@ -46,7 +46,7 @@ export default async function Home() {
                 </Button>
               </Link>
               <Link href="/register">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto bg-white dark:bg-surface-900">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto bg-surface-50 dark:bg-surface-900">
                   <Translate section="home" textKey="becomeSeller" />
                 </Button>
               </Link>
@@ -76,7 +76,7 @@ export default async function Home() {
             }
           ].map((feature, i) => (
             <div key={i} className="p-6 rounded-3xl bg-surface-50 dark:bg-surface-800/80 border border-surface-100/50 dark:border-surface-700 hover-lift">
-              <div className="w-12 h-12 rounded-2xl bg-white dark:bg-surface-900 shadow-sm border border-surface-100 dark:border-surface-800 flex items-center justify-center mb-6">
+              <div className="w-12 h-12 rounded-2xl bg-surface-50 dark:bg-surface-900 shadow-sm border border-surface-100 dark:border-surface-800 flex items-center justify-center mb-6">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold text-surface-900 dark:text-surface-50 mb-2">{feature.title}</h3>

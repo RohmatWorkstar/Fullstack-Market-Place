@@ -2,29 +2,31 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #eef2ff;
-  --color-primary-100: #e0e7ff;
-  --color-primary-200: #c7d2fe;
-  --color-primary-300: #a5b4fc;
-  --color-primary-400: #818cf8;
-  --color-primary-500: #6366f1;
-  --color-primary-600: #4f46e5;
-  --color-primary-700: #4338ca;
-  --color-primary-800: #3730a3;
-  --color-primary-900: #312e81;
-  --color-primary-950: #1e1b4b;
+  /* ================= PRIMARY (MODERN BLUE) ================= */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  --color-primary-950: #172554;
 
-  --color-surface-50: #f0f9ff;  /* Soft light blue for comfortable reading */
-  --color-surface-100: #e0f2fe;
-  --color-surface-200: #bae6fd;
-  --color-surface-300: #7dd3fc;
-  --color-surface-400: #38bdf8;
-  --color-surface-500: #0ea5e9;
-  --color-surface-600: #0284c7;
-  --color-surface-700: #0369a1;
-  --color-surface-800: #075985;
-  --color-surface-900: #0c4a6e;
-  --color-surface-950: #082f49;
+  /* ================= SURFACE (CLEAN MODERN) ================= */
+  --color-surface-50: #f8fafc;
+  --color-surface-100: #f1f5f9;
+  --color-surface-200: #e2e8f0;
+  --color-surface-300: #cbd5e1;
+  --color-surface-400: #94a3b8;
+  --color-surface-500: #64748b;
+  --color-surface-600: #475569;
+  --color-surface-700: #334155;
+  --color-surface-800: #1e293b;
+  --color-surface-900: #0f172a;
+  --color-surface-950: #020617;
 
   --font-sans: "Inter", "system-ui", "sans-serif";
 
@@ -52,7 +54,7 @@
 }
 
 @utility container-custom {
-  max-width: 80rem; /* 1280px */
+  max-width: 80rem;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
@@ -68,15 +70,15 @@
 }
 
 @utility glass {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.08);
 
   :where(.dark) & {
-    background-color: rgba(8, 47, 73, 0.6);
-    border: 1px solid rgba(14, 165, 233, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    background-color: rgba(2, 6, 23, 0.7);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -96,7 +98,7 @@
   transition-duration: 300ms;
   &:hover {
     transform: translateY(-0.25rem);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 10px 10px -5px rgba(15, 23, 42, 0.05);
   }
 }
 
@@ -105,8 +107,8 @@
   padding: 0.75rem 1rem;
   border-radius: 1rem;
   border: 1px solid var(--color-surface-200);
-  background-color: white;
-  color: var(--color-surface-950);
+  background-color: #ffffff;
+  color: var(--color-surface-900);
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   
   &::placeholder {
@@ -115,20 +117,20 @@
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
     border-color: var(--color-primary-500);
     transform: translateY(-1px);
   }
 
   :where(.dark) & {
-    border-color: var(--color-surface-900);
-    background-color: var(--color-surface-950);
+    border-color: var(--color-surface-800);
+    background-color: var(--color-surface-900);
     color: var(--color-surface-100);
     &::placeholder {
-      color: var(--color-surface-700);
+      color: var(--color-surface-500);
     }
     &:focus {
-      box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
     }
   }
 }
@@ -149,7 +151,7 @@
 
     :where(.dark) & {
       background-color: var(--color-surface-950);
-      color: var(--color-surface-200);
+      color: var(--color-surface-100);
     }
   }
 }

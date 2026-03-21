@@ -120,7 +120,7 @@ export default function Navbar() {
                 placeholder={t.searchPlaceholder}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-full bg-surface-100/50 border border-surface-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all placeholder:text-surface-400 text-sm text-surface-900 dark:text-surface-100 dark:bg-surface-800 dark:border-surface-700 dark:focus:bg-surface-900 dark:placeholder:text-surface-500"
+                className="w-full pl-10 pr-4 py-2 rounded-full bg-surface-100/50 border border-surface-200 focus:bg-surface-50 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all placeholder:text-surface-400 text-sm text-surface-900 dark:text-surface-100 dark:bg-surface-800 dark:border-surface-700 dark:focus:bg-surface-900 dark:placeholder:text-surface-500"
               />
             </form>
           </div>
@@ -169,7 +169,7 @@ export default function Navbar() {
                       </div>
                       
                       {/* Dropdown menu */}
-                      <div className="absolute right-0 top-full mt-2 w-48 bg-white dark:bg-surface-900 rounded-xl shadow-xl border border-surface-100 dark:border-surface-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right scale-95 group-hover:scale-100">
+                      <div className="absolute right-0 top-full mt-2 w-48 bg-surface-50 dark:bg-surface-900 rounded-xl shadow-xl border border-surface-100 dark:border-surface-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right scale-95 group-hover:scale-100">
                         <div className="p-3 border-b border-surface-100 dark:border-surface-800">
                           <p className="text-sm font-medium text-surface-900 dark:text-surface-50 truncate">
                             {profile.full_name}
@@ -238,7 +238,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-surface-900 border-b border-surface-200 dark:border-surface-800 shadow-lg px-4 py-4 space-y-4 animate-fade-in">
+        <div className="md:hidden absolute top-full left-0 w-full bg-surface-50 dark:bg-surface-900 border-b border-surface-200 dark:border-surface-800 shadow-lg px-4 py-4 space-y-4 animate-fade-in">
           <form onSubmit={handleSearch} className="relative w-full">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-surface-400" />
             <input

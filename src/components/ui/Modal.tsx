@@ -44,7 +44,7 @@ export default function Modal({ isOpen, onClose, title, children, actions }: Mod
         if (e.target === overlayRef.current) onClose();
       }}
     >
-      <div className="bg-white dark:bg-surface-900 rounded-2xl shadow-2xl w-full max-w-md animate-scale-in border border-transparent dark:border-surface-800">
+      <div className="bg-surface-50 dark:bg-surface-900 rounded-2xl shadow-2xl w-full max-w-md animate-scale-in border border-transparent dark:border-surface-800">
         <div className="flex items-center justify-between p-6 border-b border-surface-100 dark:border-surface-800">
           <h3 className="text-lg font-semibold text-surface-900 dark:text-surface-50">{title}</h3>
           <button

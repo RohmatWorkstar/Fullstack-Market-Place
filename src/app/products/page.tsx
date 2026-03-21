@@ -101,7 +101,7 @@ export default async function ProductsPage({
                 name="q"
                 defaultValue={query}
                 placeholder="Search products..."
-                className="w-full pl-10 pr-4 py-2 rounded-xl bg-white dark:bg-surface-900 border border-surface-200 dark:border-surface-700 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 text-sm shadow-sm"
+                className="w-full pl-10 pr-4 py-2 rounded-xl bg-surface-50 dark:bg-surface-900 border border-surface-200 dark:border-surface-700 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 text-sm shadow-sm"
               />
             </form>
           </div>

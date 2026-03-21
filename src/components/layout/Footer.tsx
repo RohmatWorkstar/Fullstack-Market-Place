@@ -3,7 +3,7 @@ import Translate from '@/components/Translate';
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-surface-900 border-t border-surface-200 dark:border-surface-800 mt-auto">
+    <footer className="bg-surface-50 dark:bg-surface-900 border-t border-surface-200 dark:border-surface-800 mt-auto">
       <div className="container-custom py-8 md:py-12">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="flex flex-col items-center md:items-start">

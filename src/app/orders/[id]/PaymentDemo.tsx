@@ -46,7 +46,7 @@ export default function PaymentDemo({ order }: { order: Order }) {
   };
 
   return (
-    <div className="p-6 sm:p-8 bg-white dark:bg-surface-900 border border-surface-200 dark:border-surface-800 rounded-3xl shadow-sm space-y-4">
+    <div className="p-6 sm:p-8 bg-surface-50 dark:bg-surface-900 border border-surface-200 dark:border-surface-800 rounded-3xl shadow-sm space-y-4">
       <div className="flex items-center gap-3 mb-2">
         <div className="bg-primary-50 dark:bg-primary-950/20 p-3 rounded-xl shrink-0">
           <CreditCard className="w-6 h-6 text-primary-600" />

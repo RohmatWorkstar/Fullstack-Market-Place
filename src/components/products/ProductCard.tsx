@@ -11,7 +11,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className="group bg-white dark:bg-surface-950 rounded-3xl border border-surface-200/60 dark:border-surface-900 overflow-hidden hover-lift flex flex-col h-full shadow-sm hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-500">
+    <div className="group bg-surface-50 dark:bg-surface-950 rounded-3xl border border-surface-200/60 dark:border-surface-900 overflow-hidden hover-lift flex flex-col h-full shadow-sm hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-500">
       <Link href={`/products/${product.id}`} className="relative aspect-[4/3] overflow-hidden bg-surface-50 dark:bg-surface-900 flex-shrink-0 block">
         {product.image_url ? (
           <Image
@@ -27,7 +27,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         )}
         <div className="absolute top-3 left-3">
-          <span className="px-3 py-1 text-[10px] uppercase tracking-wider font-bold bg-white/90 dark:bg-surface-950/90 backdrop-blur-md rounded-full text-surface-900 dark:text-surface-50 shadow-sm border border-surface-200/50 dark:border-surface-800">
+          <span className="px-3 py-1 text-[10px] uppercase tracking-wider font-bold bg-surface-50/90 dark:bg-surface-950/90 backdrop-blur-md rounded-full text-surface-900 dark:text-surface-50 shadow-sm border border-surface-200/50 dark:border-surface-800">
             {product.category}
           </span>
         </div>

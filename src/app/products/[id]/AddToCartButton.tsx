@@ -35,7 +35,7 @@ export default function AddToCartButton({ product }: { product: Product }) {
 
   return (
     <div className="flex flex-col sm:flex-row gap-4">
-      <div className="flex items-center justify-between border border-surface-200 dark:border-surface-700 rounded-xl px-4 py-2 bg-white dark:bg-surface-800 flex-shrink-0">
+      <div className="flex items-center justify-between border border-surface-200 dark:border-surface-700 rounded-xl px-4 py-2 bg-surface-50 dark:bg-surface-800 flex-shrink-0">
         <button
           onClick={handleDecrease}
           disabled={quantity <= 1}

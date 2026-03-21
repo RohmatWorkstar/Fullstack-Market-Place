@@ -63,7 +63,7 @@ export default async function OrderDetailPage({
               {order.order_items?.map((item: any) => (
                 <div key={item.id} className="flex items-center justify-between p-4 rounded-2xl bg-surface-50 dark:bg-surface-800/50 border border-surface-100 dark:border-surface-700">
                   <div className="flex items-center gap-4 border-r border-surface-200 dark:border-surface-800 pr-4 w-2/3">
-                    <div className="w-10 h-10 rounded-xl bg-white dark:bg-surface-900 flex items-center justify-center shrink-0 shadow-sm border border-surface-200 dark:border-surface-700">
+                    <div className="w-10 h-10 rounded-xl bg-surface-50 dark:bg-surface-900 flex items-center justify-center shrink-0 shadow-sm border border-surface-200 dark:border-surface-700">
                       <Package className="w-5 h-5 text-surface-400 dark:text-surface-500" />
                     </div>
                     <div className="min-w-0">

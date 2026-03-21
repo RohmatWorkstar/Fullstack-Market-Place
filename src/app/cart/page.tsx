@@ -101,7 +101,7 @@ export default function CartPage() {
 
                    <div className="w-full sm:col-span-3 flex justify-between sm:justify-center items-center">
                      <span className="text-sm text-surface-500 dark:text-surface-400 sm:hidden">Qty:</span>
-                     <div className="flex items-center border border-surface-200 dark:border-surface-700 rounded-xl px-2 py-1.5 bg-white dark:bg-surface-900">
+                     <div className="flex items-center border border-surface-200 dark:border-surface-700 rounded-xl px-2 py-1.5 bg-surface-50 dark:bg-surface-900">
                         <button
                           onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
                           disabled={item.quantity <= 1}

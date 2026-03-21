@@ -62,7 +62,7 @@ export default function AboutPage() {
             }
           ].map((value, i) => (
             <div key={i} className="bg-surface-50 dark:bg-surface-800/80 rounded-3xl p-6 border border-surface-100 dark:border-surface-700 hover-lift">
-              <div className="w-12 h-12 rounded-2xl bg-white dark:bg-surface-900 shadow-sm flex items-center justify-center mb-6">
+              <div className="w-12 h-12 rounded-2xl bg-surface-50 dark:bg-surface-900 shadow-sm flex items-center justify-center mb-6">
                 {value.icon}
               </div>
               <h3 className="text-xl font-bold text-surface-900 dark:text-surface-50 mb-3">{value.title}</h3>

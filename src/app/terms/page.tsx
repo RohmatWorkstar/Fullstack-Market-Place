@@ -59,7 +59,7 @@ export default function TermsPage() {
           <p className="text-surface-600 dark:text-surface-300 mb-6">
             <Translate section="terms" textKey="questionsDesc" />
           </p>
-          <Link href="/contact" className="inline-flex items-center justify-center px-6 py-2.5 rounded-xl font-medium bg-white dark:bg-surface-900 border-2 border-surface-200 dark:border-surface-700 text-surface-700 dark:text-surface-200 hover:bg-surface-50 dark:hover:bg-surface-800 transition-colors">
+          <Link href="/contact" className="inline-flex items-center justify-center px-6 py-2.5 rounded-xl font-medium bg-surface-50 dark:bg-surface-900 border-2 border-surface-200 dark:border-surface-700 text-surface-700 dark:text-surface-200 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors">
             <Translate section="terms" textKey="contactSupport" />
           </Link>
         </section>
