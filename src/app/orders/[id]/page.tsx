@@ -10,8 +10,9 @@ import Translate from '@/components/Translate';
 export default async function OrderDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
@@ -20,7 +21,7 @@ export default async function OrderDetailPage({
   const { data: order } = await supabase
     .from('orders')
     .select('*, order_items(*)')
-    .eq('id', params.id)
+    .eq('id', id)
     .single();
 
   if (!order || order.user_id !== user.id) {

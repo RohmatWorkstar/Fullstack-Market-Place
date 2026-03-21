@@ -5,8 +5,9 @@ import { createClient } from '@/lib/supabase/server';
 export default async function EditProductPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
@@ -15,7 +16,7 @@ export default async function EditProductPage({
   const { data: product } = await supabase
     .from('products')
     .select('*')
-    .eq('id', params.id)
+    .eq('id', id)
     .single();
 
   if (!product || product.seller_id !== user.id) {

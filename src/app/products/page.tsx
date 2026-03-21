@@ -14,10 +14,11 @@ export const dynamic = 'force-dynamic';
 export default async function ProductsPage({
   searchParams,
 }: {
-  searchParams: { q?: string; category?: string };
+  searchParams: Promise<{ q?: string; category?: string }>;
 }) {
-  const query = searchParams.q || '';
-  const categoryFilter = searchParams.category || '';
+  const { q, category } = await searchParams;
+  const query = q || '';
+  const categoryFilter = category || '';
 
   const supabase = await createClient();
   let dbQuery = supabase
