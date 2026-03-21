@@ -11,7 +11,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className="group bg-white rounded-2xl border border-surface-200 overflow-hidden hover-lift flex flex-col h-full">
+    <div className="group bg-white dark:bg-surface-900 rounded-2xl border border-surface-200 dark:border-surface-800 overflow-hidden hover-lift flex flex-col h-full">
       <Link href={`/products/${product.id}`} className="relative aspect-[4/3] overflow-hidden bg-surface-100 flex-shrink-0 block">
         {product.image_url ? (
           <Image
@@ -27,7 +27,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         )}
         <div className="absolute top-3 left-3">
-          <span className="px-2.5 py-1 text-xs font-medium bg-white/90 backdrop-blur-sm rounded-lg text-surface-700 shadow-sm border border-surface-200/50">
+          <span className="px-2.5 py-1 text-xs font-medium bg-white/90 dark:bg-surface-900/90 backdrop-blur-sm rounded-lg text-surface-700 dark:text-surface-300 shadow-sm border border-surface-200/50 dark:border-surface-700/50">
             {product.category}
           </span>
         </div>
@@ -35,7 +35,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       
       <div className="p-5 flex flex-col flex-grow">
         <Link href={`/products/${product.id}`} className="block mb-1 cursor-pointer">
-          <h3 className="font-semibold text-surface-900 group-hover:text-primary-600 transition-colors line-clamp-1">
+          <h3 className="font-semibold text-surface-900 dark:text-surface-50 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-1">
             {product.name}
           </h3>
         </Link>
@@ -44,7 +44,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </p>
         
         <div className="flex items-center justify-between mt-auto">
-          <span className="text-lg font-bold text-surface-900">
+          <span className="text-lg font-bold text-surface-900 dark:text-surface-50">
             {formatPrice(product.price)}
           </span>
           <Button variant="secondary" size="sm" className="rounded-full w-10 h-10 p-0 hover:bg-primary-50 hover:text-primary-600 transition-colors">

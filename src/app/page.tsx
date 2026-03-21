@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, ShoppingBag, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowRight, ShoppingBag, ShieldCheck, Zap, Package } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import ProductCard from '@/components/products/ProductCard';
 import { createClient } from '@/lib/supabase/server';
@@ -23,12 +23,12 @@ export default async function Home() {
         
         <div className="container-custom relative">
           <div className="max-w-3xl space-y-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-primary-100 text-sm font-medium text-primary-700 shadow-sm animate-slide-up" style={{ animationDelay: '0ms' }}>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-surface-900 border border-primary-100 dark:border-primary-900/50 text-sm font-medium text-primary-700 dark:text-primary-400 shadow-sm animate-slide-up" style={{ animationDelay: '0ms' }}>
               <span className="flex h-2 w-2 rounded-full bg-primary-600 animate-pulse" />
               Next.js 14 App Router
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-surface-900 text-balance animate-slide-up" style={{ animationDelay: '100ms' }}>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-surface-900 dark:text-surface-50 text-balance animate-slide-up" style={{ animationDelay: '100ms' }}>
               Discover amazing products from <span className="gradient-text">verified sellers</span>
             </h1>
             
@@ -43,7 +43,7 @@ export default async function Home() {
                 </Button>
               </Link>
               <Link href="/register">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto bg-white">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto bg-white dark:bg-surface-900">
                   Become a Seller
                 </Button>
               </Link>
@@ -72,11 +72,11 @@ export default async function Home() {
               description: "Every seller is verified, ensuring a safe and reliable shopping experience."
             }
           ].map((feature, i) => (
-            <div key={i} className="p-6 rounded-3xl bg-surface-50 border border-surface-100/50 hover-lift">
-              <div className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-surface-100 flex items-center justify-center mb-6">
+            <div key={i} className="p-6 rounded-3xl bg-surface-50 dark:bg-surface-800/80 border border-surface-100/50 dark:border-surface-700 hover-lift">
+              <div className="w-12 h-12 rounded-2xl bg-white dark:bg-surface-900 shadow-sm border border-surface-100 dark:border-surface-800 flex items-center justify-center mb-6">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-semibold text-surface-900 mb-2">{feature.title}</h3>
+              <h3 className="text-xl font-semibold text-surface-900 dark:text-surface-50 mb-2">{feature.title}</h3>
               <p className="text-surface-600 leading-relaxed">{feature.description}</p>
             </div>
           ))}
@@ -87,7 +87,7 @@ export default async function Home() {
       <section className="container-custom">
         <div className="flex items-center justify-between mb-10">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-surface-900">New Arrivals</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-surface-900 dark:text-surface-50">New Arrivals</h2>
             <p className="mt-2 text-surface-500">The latest items added to our marketplace</p>
           </div>
           <Link href="/products" className="hidden sm:flex group items-center gap-2 text-primary-600 font-medium hover:text-primary-700 transition-colors">
@@ -102,9 +102,9 @@ export default async function Home() {
             ))}
           </div>
         ) : (
-          <div className="text-center py-12 bg-surface-50 rounded-3xl border border-surface-100 border-dashed">
-            <ShoppingBag className="w-12 h-12 text-surface-300 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-surface-900">No products yet</h3>
+          <div className="text-center py-12 bg-surface-50 dark:bg-surface-800/50 rounded-3xl border border-surface-100 dark:border-surface-700 border-dashed">
+            <Package className="w-12 h-12 text-surface-400 mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-surface-900 dark:text-surface-50">No products yet</h3>
             <p className="text-surface-500 mt-1">Be the first to add a product!</p>
             <Link href="/register" className="mt-4 inline-block">
               <Button variant="outline">Create a seller account</Button>

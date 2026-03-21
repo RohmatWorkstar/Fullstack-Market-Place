@@ -65,7 +65,7 @@ export default function CartPage() {
       <div className="grid lg:grid-cols-3 gap-8 items-start">
         <div className="lg:col-span-2 space-y-4">
           <div className="glass rounded-3xl overflow-hidden hidden sm:block">
-            <div className="grid grid-cols-12 gap-4 border-b border-surface-200 px-6 py-4 bg-surface-50/50">
+            <div className="grid grid-cols-12 gap-4 border-b border-surface-200 dark:border-surface-800 px-6 py-4 bg-surface-50/50 dark:bg-surface-800/80">
               <div className="col-span-6 font-medium text-surface-600 text-sm uppercase tracking-wider">Product</div>
               <div className="col-span-3 font-medium text-surface-600 text-sm uppercase tracking-wider text-center">Quantity</div>
               <div className="col-span-3 font-medium text-surface-600 text-sm uppercase tracking-wider text-right">Total</div>
@@ -96,7 +96,7 @@ export default function CartPage() {
 
                    <div className="w-full sm:col-span-3 flex justify-between sm:justify-center items-center">
                      <span className="text-sm text-surface-500 sm:hidden">Qty:</span>
-                     <div className="flex items-center border border-surface-200 rounded-xl px-2 py-1.5 bg-white">
+                     <div className="flex items-center border border-surface-200 dark:border-surface-700 rounded-xl px-2 py-1.5 bg-white dark:bg-surface-900">
                         <button
                           onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
                           disabled={item.quantity <= 1}

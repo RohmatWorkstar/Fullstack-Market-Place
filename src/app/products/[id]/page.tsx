@@ -25,7 +25,7 @@ export default async function ProductDetailPage({
 
   return (
     <div className="container-custom py-8 animate-fade-in">
-      <Link href="/products" className="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-surface-900 mb-8 transition-colors">
+      <Link href="/products" className="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-surface-900 dark:hover:text-surface-50 mb-8 transition-colors">
         <ArrowLeft className="w-4 h-4" /> Back to products
       </Link>
 
@@ -52,7 +52,7 @@ export default async function ProductDetailPage({
         <div className="flex flex-col">
           <Badge variant="default" className="w-fit mb-4">{product.category}</Badge>
           
-          <h1 className="text-3xl md:text-4xl font-bold text-surface-900 tracking-tight text-balance mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-surface-900 dark:text-surface-50 tracking-tight text-balance mb-4">
             {product.name}
           </h1>
           
@@ -64,7 +64,7 @@ export default async function ProductDetailPage({
             <p className="whitespace-pre-wrap">{product.description || 'No description provided.'}</p>
           </div>
 
-          <div className="bg-surface-50 rounded-2xl p-6 border border-surface-200 mb-8 space-y-4">
+          <div className="bg-surface-50 dark:bg-surface-800/50 rounded-2xl p-6 border border-surface-200 dark:border-surface-700 mb-8 space-y-4">
             <div className="flex items-center gap-3">
               <div className="relative w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 font-bold shrink-0 overflow-hidden">
                 {product.seller?.avatar_url ? (
@@ -74,7 +74,7 @@ export default async function ProductDetailPage({
                 )}
               </div>
               <div>
-                <p className="text-sm font-medium text-surface-900 flex items-center gap-1.5">
+                <p className="text-sm font-medium text-surface-900 dark:text-surface-50 flex items-center gap-1.5">
                   <Store className="w-4 h-4 text-surface-400" />
                   {product.seller?.full_name || 'Unknown Seller'}
                 </p>

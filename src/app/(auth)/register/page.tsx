@@ -81,7 +81,7 @@ export default function RegisterPage() {
                   'flex flex-col items-center gap-2 p-4 rounded-2xl border-2 transition-all duration-200',
                   role === 'buyer'
                     ? 'border-primary-500 bg-primary-50 text-primary-700'
-                    : 'border-surface-200 bg-white text-surface-500 hover:border-primary-200 hover:bg-surface-50'
+                    : 'border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-800 text-surface-500 dark:text-surface-400 hover:border-primary-200 dark:hover:border-primary-500 hover:bg-surface-50 dark:hover:bg-surface-700'
                 )}
               >
                 <div className={cn(
@@ -100,7 +100,7 @@ export default function RegisterPage() {
                   'flex flex-col items-center gap-2 p-4 rounded-2xl border-2 transition-all duration-200',
                   role === 'seller'
                     ? 'border-primary-500 bg-primary-50 text-primary-700'
-                    : 'border-surface-200 bg-white text-surface-500 hover:border-primary-200 hover:bg-surface-50'
+                    : 'border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-800 text-surface-500 dark:text-surface-400 hover:border-primary-200 dark:hover:border-primary-500 hover:bg-surface-50 dark:hover:bg-surface-700'
                 )}
               >
                 <div className={cn(

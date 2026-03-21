@@ -24,7 +24,7 @@ export default async function DashboardPage() {
     <div className="space-y-6 animate-fade-in">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 glass p-6 rounded-3xl">
         <div>
-          <h1 className="text-2xl font-bold text-surface-900">My Products</h1>
+          <h1 className="text-2xl font-bold text-surface-900 dark:text-surface-50">My Products</h1>
           <p className="text-surface-500">Manage your inventory and listings</p>
         </div>
         <Link href="/dashboard/products/new">
@@ -52,7 +52,7 @@ export default async function DashboardPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-surface-50/50 border-b border-surface-200 text-sm font-medium text-surface-500">
+                <tr className="bg-surface-50/50 dark:bg-surface-800/50 border-b border-surface-200 dark:border-surface-800 text-sm font-medium text-surface-500 dark:text-surface-400">
                   <th className="p-4 pl-6">Product</th>
                   <th className="p-4">Price</th>
                   <th className="p-4">Status</th>
@@ -62,7 +62,7 @@ export default async function DashboardPage() {
               </thead>
               <tbody className="divide-y divide-surface-100">
                 {products.map((product) => (
-                  <tr key={product.id} className="hover:bg-surface-50/50 transition-colors group">
+                  <tr key={product.id} className="hover:bg-surface-50/50 dark:hover:bg-surface-800/50 transition-colors group">
                     <td className="p-4 pl-6">
                       <div className="flex items-center gap-4">
                         <div className="relative w-12 h-12 rounded-xl bg-surface-100 flex-shrink-0 overflow-hidden border border-surface-200">

@@ -33,21 +33,21 @@ export default function AddToCartButton({ product }: { product: Product }) {
 
   return (
     <div className="flex flex-col sm:flex-row gap-4">
-      <div className="flex items-center justify-between border border-surface-200 rounded-xl px-4 py-2 bg-white flex-shrink-0">
+      <div className="flex items-center justify-between border border-surface-200 dark:border-surface-700 rounded-xl px-4 py-2 bg-white dark:bg-surface-800 flex-shrink-0">
         <button
           onClick={handleDecrease}
           disabled={quantity <= 1}
-          className="p-1 text-surface-500 hover:text-surface-900 disabled:opacity-50"
+          className="p-1 text-surface-500 hover:text-surface-900 dark:hover:text-surface-50 disabled:opacity-50"
         >
           <Minus className="w-4 h-4" />
         </button>
-        <span className="w-8 text-center font-medium text-surface-900">
+        <span className="w-8 text-center font-medium text-surface-900 dark:text-surface-50">
           {quantity}
         </span>
         <button
           onClick={handleIncrease}
           disabled={quantity >= product.stock}
-          className="p-1 text-surface-500 hover:text-surface-900 disabled:opacity-50"
+          className="p-1 text-surface-500 hover:text-surface-900 dark:hover:text-surface-50 disabled:opacity-50"
         >
           <Plus className="w-4 h-4" />
         </button>
