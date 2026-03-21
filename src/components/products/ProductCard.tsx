@@ -27,7 +27,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         )}
         <div className="absolute top-3 left-3">
-          <span className="px-2.5 py-1 text-xs font-medium bg-white/90 dark:bg-surface-900/90 backdrop-blur-sm rounded-lg text-surface-700 dark:text-surface-300 shadow-sm border border-surface-200/50 dark:border-surface-700/50">
+          <span className="px-2.5 py-1 text-xs font-medium bg-white/90 dark:bg-surface-900/90 backdrop-blur-sm rounded-lg text-surface-700 dark:text-surface-200 shadow-sm border border-surface-200/50 dark:border-surface-700/50">
             {product.category}
           </span>
         </div>
@@ -39,7 +39,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             {product.name}
           </h3>
         </Link>
-        <p className="text-sm text-surface-500 line-clamp-2 mb-4 flex-grow">
+        <p className="text-sm text-surface-500 dark:text-surface-300 line-clamp-2 mb-4 flex-grow">
           {product.description || 'No description available'}
         </p>
         

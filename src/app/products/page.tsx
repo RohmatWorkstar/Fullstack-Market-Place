@@ -41,13 +41,13 @@ export default async function ProductsPage({
         {/* Filters Sidebar */}
         <aside className="w-full md:w-64 flex-shrink-0">
           <div className="glass rounded-3xl p-6 sticky top-24">
-            <h2 className="text-lg font-bold text-surface-900 dark:text-surface-50 mb-6 flex items-center gap-2">
+            <h2 className="text-lg font-bold text-surface-900 dark:text-surface-100 mb-6 flex items-center gap-2">
               <Filter className="w-5 h-5" /> <Translate section="products" textKey="filters" />
             </h2>
             
             <div className="space-y-4">
               <div>
-                <h3 className="text-sm font-semibold text-surface-700 mb-3 uppercase tracking-wider">Categories</h3>
+                <h3 className="text-sm font-semibold text-surface-700 dark:text-surface-300 mb-3 uppercase tracking-wider">Categories</h3>
                 <div className="space-y-2">
                   <Link
                     href={`/products?q=${query}`}
@@ -55,7 +55,7 @@ export default async function ProductsPage({
                       'block px-3 py-2 rounded-xl text-sm transition-colors',
                       !categoryFilter || categoryFilter === 'all'
                         ? 'bg-primary-50 text-primary-700 font-medium'
-                        : 'text-surface-600 hover:bg-surface-50 dark:hover:bg-surface-800 dark:text-surface-400'
+                        : 'text-surface-600 hover:bg-surface-50 dark:hover:bg-surface-800 dark:text-surface-300'
                     )}
                   >
                     <Translate section="products" textKey="allCategories" />
@@ -68,7 +68,7 @@ export default async function ProductsPage({
                         'block px-3 py-2 rounded-xl text-sm transition-colors',
                         categoryFilter === cat
                           ? 'bg-primary-50 text-primary-700 font-medium'
-                          : 'text-surface-600 hover:bg-surface-50 dark:hover:bg-surface-800 dark:text-surface-400'
+                          : 'text-surface-600 hover:bg-surface-50 dark:hover:bg-surface-800 dark:text-surface-300'
                       )}
                     >
                       {cat}
@@ -87,7 +87,7 @@ export default async function ProductsPage({
               <h1 className="text-2xl font-bold text-surface-900 dark:text-surface-50">
                 {categoryFilter && categoryFilter !== 'all' ? categoryFilter : <Translate section="products" textKey="allProducts" />}
               </h1>
-              <p className="text-surface-500 mt-1">
+              <p className="text-surface-500 dark:text-surface-300 mt-1">
                 {products?.length || 0} result{products?.length !== 1 ? 's' : ''} found
               </p>
             </div>
@@ -108,9 +108,9 @@ export default async function ProductsPage({
           <Suspense fallback={<PageSpinner />}>
             {!products || products.length === 0 ? (
               <div className="text-center py-16 glass rounded-3xl">
-                <ShoppingBag className="w-12 h-12 text-surface-300 mx-auto mb-4" />
+                <ShoppingBag className="w-12 h-12 text-surface-300 dark:text-surface-600 mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-surface-900 dark:text-surface-50"><Translate section="products" textKey="noProducts" /></h3>
-                <p className="text-surface-500 mt-1"><Translate section="products" textKey="tryAdjusting" /></p>
+                <p className="text-surface-500 dark:text-surface-300 mt-1"><Translate section="products" textKey="tryAdjusting" /></p>
                 {(query || categoryFilter) && (
                   <Link href="/products" className="mt-6 inline-block">
                     <Button variant="outline"><Translate section="products" textKey="clearFilters" /></Button>

@@ -6,17 +6,17 @@ export default function AboutPage() {
     <div className="container-custom py-16 animate-fade-in space-y-24">
       {/* Hero */}
       <section className="text-center max-w-3xl mx-auto space-y-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-surface-900 tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-bold text-surface-900 dark:text-surface-50 tracking-tight">
           <Translate section="about" textKey="title" />
         </h1>
-        <p className="text-lg text-surface-600 leading-relaxed">
+        <p className="text-lg text-surface-600 dark:text-surface-300 leading-relaxed">
           <Translate section="about" textKey="subtitle" />
         </p>
       </section>
 
       {/* Stats/Highlight */}
       <section className="glass rounded-3xl p-8 md:p-12 mb-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-surface-200">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-surface-200 dark:divide-surface-800">
           {[
             { label: 'Verified Sellers', value: '10k+' },
             { label: 'Happy Customers', value: '50k+' },
@@ -25,7 +25,7 @@ export default function AboutPage() {
           ].map((stat) => (
             <div key={stat.label} className="space-y-2">
               <div className="text-3xl md:text-4xl font-bold text-primary-600">{stat.value}</div>
-              <div className="text-sm font-medium text-surface-500 uppercase tracking-wider">{stat.label}</div>
+              <div className="text-sm font-medium text-surface-500 dark:text-surface-300 uppercase tracking-wider">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -34,8 +34,8 @@ export default function AboutPage() {
       {/* Core Values */}
       <section className="space-y-12">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-surface-900">Our Core Values</h2>
-          <p className="mt-4 text-surface-500">The principles that guide everything we do.</p>
+          <h2 className="text-3xl font-bold text-surface-900 dark:text-surface-50">Our Core Values</h2>
+          <p className="mt-4 text-surface-500 dark:text-surface-300">The principles that guide everything we do.</p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -66,7 +66,7 @@ export default function AboutPage() {
                 {value.icon}
               </div>
               <h3 className="text-xl font-bold text-surface-900 dark:text-surface-50 mb-3">{value.title}</h3>
-              <p className="text-surface-600 dark:text-surface-400 leading-relaxed">{value.description}</p>
+              <p className="text-surface-600 dark:text-surface-300 leading-relaxed">{value.description}</p>
             </div>
           ))}
         </div>

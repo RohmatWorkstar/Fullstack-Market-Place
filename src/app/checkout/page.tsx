@@ -86,8 +86,8 @@ export default function CheckoutPage() {
   if (items.length === 0) {
     return (
       <div className="container-custom max-w-4xl py-16 text-center">
-        <h1 className="text-2xl font-bold mb-4">{tCheckout.title}</h1>
-        <p className="text-surface-500 mb-8">Your cart is empty.</p>
+        <h1 className="text-2xl font-bold text-surface-900 dark:text-surface-50 mb-4">{tCheckout.title}</h1>
+        <p className="text-surface-500 dark:text-surface-300 mb-8">Your cart is empty.</p>
         <Link href="/products"><Button>Go Shopping</Button></Link>
       </div>
     );
@@ -95,27 +95,27 @@ export default function CheckoutPage() {
 
   return (
     <div className="container-custom max-w-4xl py-8 animate-fade-in">
-      <Link href="/cart" className="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-surface-900 mb-8 transition-colors">
+      <Link href="/cart" className="inline-flex items-center gap-2 text-sm text-surface-500 dark:text-surface-300 hover:text-surface-900 dark:hover:text-surface-50 mb-8 transition-colors">
         <ArrowLeft className="w-4 h-4" /> Back to Cart
       </Link>
 
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
         <div className="space-y-8">
           <div>
-            <h1 className="text-3xl font-bold text-surface-900 mb-2">{tCheckout.title}</h1>
-            <p className="text-surface-500">Review your order details below.</p>
+            <h1 className="text-3xl font-bold text-surface-900 dark:text-surface-50 mb-2">{tCheckout.title}</h1>
+            <p className="text-surface-500 dark:text-surface-300">Review your order details below.</p>
           </div>
 
           <div className="glass rounded-3xl p-6 sm:p-8">
-            <h2 className="text-lg font-bold text-surface-900 mb-4 pb-4 border-b border-surface-200">Order Items</h2>
+            <h2 className="text-lg font-bold text-surface-900 dark:text-surface-50 mb-4 pb-4 border-b border-surface-200 dark:border-surface-800">Order Items</h2>
             <div className="space-y-4">
               {items.map((item) => (
                 <div key={item.product.id} className="flex justify-between items-center text-sm">
                   <div className="flex-1 pr-4">
-                    <p className="font-medium text-surface-900 line-clamp-1">{item.product.name}</p>
-                    <p className="text-surface-500">Qty: {item.quantity}</p>
+                    <p className="font-medium text-surface-900 dark:text-surface-50 line-clamp-1">{item.product.name}</p>
+                    <p className="text-surface-500 dark:text-surface-300">Qty: {item.quantity}</p>
                   </div>
-                  <div className="font-medium text-surface-900 whitespace-nowrap">
+                  <div className="font-medium text-surface-900 dark:text-surface-50 whitespace-nowrap">
                     {formatPrice(item.product.price * item.quantity)}
                   </div>
                 </div>
@@ -126,26 +126,26 @@ export default function CheckoutPage() {
 
         <div className="space-y-6">
           <div className="glass bg-primary-50/30 rounded-3xl p-6 sm:p-8 sticky top-24">
-            <h2 className="text-lg font-bold text-surface-900 mb-6">{tCheckout.orderSummary}</h2>
+            <h2 className="text-lg font-bold text-surface-900 dark:text-surface-50 mb-6">{tCheckout.orderSummary}</h2>
             
             <div className="space-y-3 mb-6 text-sm">
-              <div className="flex justify-between text-surface-600">
+              <div className="flex justify-between text-surface-600 dark:text-surface-300">
                 <span>Items Subtotal</span>
-                <span>{formatPrice(subtotal)}</span>
+                <span className="font-medium text-surface-900 dark:text-surface-50">{formatPrice(subtotal)}</span>
               </div>
-              <div className="flex justify-between text-surface-600">
+              <div className="flex justify-between text-surface-600 dark:text-surface-300">
                 <span>Shipping</span>
-                <span className="text-emerald-600">Free</span>
+                <span className="text-emerald-600 font-medium">Free</span>
               </div>
-              <div className="flex justify-between text-surface-600">
+              <div className="flex justify-between text-surface-600 dark:text-surface-300">
                 <span>Taxes</span>
-                <span>Included</span>
+                <span className="dark:text-surface-300">Included</span>
               </div>
             </div>
             
-            <div className="border-t border-surface-200 pt-4 mb-8">
+            <div className="border-t border-surface-200 dark:border-surface-800 pt-4 mb-8">
               <div className="flex justify-between items-center">
-                <span className="font-bold text-surface-900 text-lg">Total</span>
+                <span className="font-bold text-surface-900 dark:text-surface-50 text-lg">Total</span>
                 <span className="font-bold text-primary-600 text-2xl">{formatPrice(subtotal)}</span>
               </div>
             </div>
@@ -154,7 +154,7 @@ export default function CheckoutPage() {
               <CheckCircle className="w-5 h-5 mr-2 -ml-2" /> {tCheckout.placeOrder}
             </Button>
             
-            <div className="mt-4 flex items-center justify-center gap-2 text-xs text-surface-500">
+            <div className="mt-4 flex items-center justify-center gap-2 text-xs text-surface-500 dark:text-surface-400">
               <ShieldCheck className="w-4 h-4 text-emerald-500" /> Secure transaction testing
             </div>
           </div>

@@ -156,12 +156,12 @@ export default function Navbar() {
                       </div>
                       
                       {/* Dropdown menu */}
-                      <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-xl border border-surface-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right scale-95 group-hover:scale-100">
-                        <div className="p-3 border-b border-surface-100">
-                          <p className="text-sm font-medium text-surface-900 truncate">
+                      <div className="absolute right-0 top-full mt-2 w-48 bg-white dark:bg-surface-900 rounded-xl shadow-xl border border-surface-100 dark:border-surface-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right scale-95 group-hover:scale-100">
+                        <div className="p-3 border-b border-surface-100 dark:border-surface-800">
+                          <p className="text-sm font-medium text-surface-900 dark:text-surface-50 truncate">
                             {profile.full_name}
                           </p>
-                          <p className="text-xs text-surface-500 capitalize mt-0.5">
+                          <p className="text-xs text-surface-500 dark:text-surface-400 capitalize mt-0.5">
                             {profile.role}
                           </p>
                         </div>
@@ -239,8 +239,8 @@ export default function Navbar() {
             {!loading && profile ? (
                <>
                  <div className="px-3 py-2">
-                    <p className="text-sm font-medium text-surface-900">{profile.full_name}</p>
-                    <p className="text-xs text-surface-500 capitalize">{profile.role}</p>
+                    <p className="text-sm font-medium text-surface-900 dark:text-surface-50">{profile.full_name}</p>
+                    <p className="text-xs text-surface-500 dark:text-surface-400 capitalize">{profile.role}</p>
                  </div>
                  {isSeller && (
                    <Link href="/dashboard" className="px-3 py-2 text-sm text-surface-600 hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg">

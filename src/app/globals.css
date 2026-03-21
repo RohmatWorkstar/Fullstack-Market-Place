@@ -6,13 +6,13 @@
 
 @layer base {
   * {
-    @apply border-surface-200;
+    @apply border-surface-200 dark:border-surface-800;
   }
   body {
     @apply bg-surface-50 text-surface-900 antialiased transition-colors duration-300;
   }
   .dark body {
-    @apply bg-surface-950 text-surface-50;
+    @apply bg-surface-950 text-surface-200;
   }
 }
 

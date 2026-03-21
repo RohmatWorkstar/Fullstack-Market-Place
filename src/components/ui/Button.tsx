@@ -19,11 +19,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       primary:
         'bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30',
       secondary:
-        'bg-surface-100 text-surface-700 hover:bg-surface-200 focus:ring-surface-500',
+        'bg-surface-100 dark:bg-surface-800 text-surface-700 dark:text-surface-200 hover:bg-surface-200 dark:hover:bg-surface-700 focus:ring-surface-500',
       outline:
-        'border-2 border-surface-200 text-surface-700 hover:bg-surface-50 focus:ring-primary-500',
+        'border-2 border-surface-200 dark:border-surface-700 text-surface-700 dark:text-surface-200 hover:bg-surface-50 dark:hover:bg-surface-800 focus:ring-primary-500',
       ghost:
-        'text-surface-600 hover:bg-surface-100 hover:text-surface-900 focus:ring-surface-500',
+        'text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 hover:text-surface-900 dark:hover:text-surface-100 focus:ring-surface-500',
       danger:
         'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 shadow-lg shadow-red-500/25',
     };

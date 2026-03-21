@@ -50,10 +50,10 @@ export default function LoginPage() {
     <div className="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8 glass p-8 sm:p-10 rounded-3xl">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-surface-900">
+          <h2 className="text-3xl font-bold tracking-tight text-surface-900 dark:text-surface-100">
             {tAuth.loginTitle}
           </h2>
-          <p className="mt-2 text-sm text-surface-500">
+          <p className="mt-2 text-sm text-surface-500 dark:text-surface-400">
             {tAuth.loginSubtitle}
           </p>
         </div>
@@ -101,7 +101,7 @@ export default function LoginPage() {
             {tAuth.signIn}
           </Button>
           
-          <div className="text-center text-sm text-surface-500">
+          <div className="text-center text-sm text-surface-500 dark:text-surface-400">
             {tAuth.noAccount}{' '}
             <Link href="/register" className="font-semibold text-primary-600 hover:text-primary-500 hover:underline">
               {tAuth.signUp}

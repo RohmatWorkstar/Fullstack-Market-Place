@@ -63,10 +63,10 @@ export default function RegisterPage() {
     <div className="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8 glass p-8 sm:p-10 rounded-3xl">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-surface-900">
+          <h2 className="text-3xl font-bold tracking-tight text-surface-900 dark:text-surface-100">
             {tAuth.registerTitle}
           </h2>
-          <p className="mt-2 text-sm text-surface-500">
+          <p className="mt-2 text-sm text-surface-500 dark:text-surface-400">
             {tAuth.registerSubtitle}
           </p>
         </div>
@@ -93,11 +93,11 @@ export default function RegisterPage() {
               >
                 <div className={cn(
                   'p-2 rounded-full',
-                  role === 'buyer' ? 'bg-primary-100 text-primary-600' : 'bg-surface-100'
+                  role === 'buyer' ? 'bg-primary-100 text-primary-600' : 'bg-surface-100 dark:bg-surface-700 text-surface-600 dark:text-surface-300'
                 )}>
                   <ShoppingBag className="w-5 h-5" />
                 </div>
-                <span className="font-medium text-sm">{tAuth.buyer}</span>
+                <span className="font-medium text-sm dark:text-surface-100">{tAuth.buyer}</span>
               </button>
               
               <button
@@ -112,11 +112,11 @@ export default function RegisterPage() {
               >
                 <div className={cn(
                   'p-2 rounded-full',
-                  role === 'seller' ? 'bg-primary-100 text-primary-600' : 'bg-surface-100'
+                  role === 'seller' ? 'bg-primary-100 text-primary-600' : 'bg-surface-100 dark:bg-surface-700 text-surface-600 dark:text-surface-300'
                 )}>
                   <Store className="w-5 h-5" />
                 </div>
-                <span className="font-medium text-sm">{tAuth.seller}</span>
+                <span className="font-medium text-sm dark:text-surface-100">{tAuth.seller}</span>
               </button>
             </div>
 
@@ -171,7 +171,7 @@ export default function RegisterPage() {
             {tAuth.signUp}
           </Button>
           
-          <div className="text-center text-sm text-surface-500">
+          <div className="text-center text-sm text-surface-500 dark:text-surface-400">
             {tAuth.hasAccount}{' '}
             <Link href="/login" className="font-semibold text-primary-600 hover:text-primary-500 hover:underline">
               {tAuth.signIn}

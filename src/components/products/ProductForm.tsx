@@ -109,7 +109,7 @@ export default function ProductForm({ initialData }: ProductFormProps) {
     <form onSubmit={handleSubmit} className="space-y-8 glass p-6 sm:p-8 rounded-3xl animate-fade-in max-w-3xl">
       <div className="space-y-6">
         <div>
-          <h3 className="text-lg font-medium text-surface-900 mb-4">Product Details</h3>
+          <h3 className="text-lg font-medium text-surface-900 dark:text-surface-100 mb-4">Product Details</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="col-span-1 md:col-span-2">
               <Input
@@ -146,7 +146,7 @@ export default function ProductForm({ initialData }: ProductFormProps) {
             </div>
 
             <div className="col-span-1 md:col-span-2 space-y-1.5">
-              <label className="block text-sm font-medium text-surface-700">Category</label>
+              <label className="block text-sm font-medium text-surface-700 dark:text-surface-300">Category</label>
               <select
                 className="input-base cursor-pointer"
                 value={category}
@@ -160,7 +160,7 @@ export default function ProductForm({ initialData }: ProductFormProps) {
             </div>
 
             <div className="col-span-1 md:col-span-2 space-y-1.5">
-              <label className="block text-sm font-medium text-surface-700">Description</label>
+              <label className="block text-sm font-medium text-surface-700 dark:text-surface-300">Description</label>
               <textarea
                 className="input-base min-h-[120px] resize-y"
                 placeholder="Describe your product..."
@@ -172,8 +172,8 @@ export default function ProductForm({ initialData }: ProductFormProps) {
           </div>
         </div>
 
-        <div className="pt-6 border-t border-surface-200">
-          <h3 className="text-lg font-medium text-surface-900 mb-4">Product Image</h3>
+        <div className="pt-6 border-t border-surface-200 dark:border-surface-800">
+          <h3 className="text-lg font-medium text-surface-900 dark:text-surface-100 mb-4">Product Image</h3>
           
           <div className="flex items-start gap-6">
             <div className="w-32 h-32 flex-shrink-0 bg-surface-100 rounded-2xl border-2 border-dashed border-surface-300 flex items-center justify-center relative overflow-hidden group">
@@ -192,8 +192,8 @@ export default function ProductForm({ initialData }: ProductFormProps) {
                 <Loader2 className="w-6 h-6 text-primary-500 animate-spin" />
               ) : (
                 <div className="text-center p-4">
-                  <Upload className="w-6 h-6 text-surface-400 mx-auto mb-1" />
-                  <span className="text-xs text-surface-500 font-medium whitespace-nowrap">Upload Image</span>
+                  <Upload className="w-6 h-6 text-surface-400 dark:text-surface-600 mx-auto mb-1" />
+                  <span className="text-xs text-surface-500 dark:text-surface-400 font-medium whitespace-nowrap">Upload Image</span>
                 </div>
               )}
             </div>
@@ -218,7 +218,7 @@ export default function ProductForm({ initialData }: ProductFormProps) {
                   disabled={uploading}
                 />
               </div>
-              <p className="text-sm text-surface-500">
+              <p className="text-sm text-surface-500 dark:text-surface-400">
                 Recommended size: 800x600px. Max size: 5MB.<br/>
                 Supported formats: JPG, PNG, WEBP.
               </p>
@@ -227,7 +227,7 @@ export default function ProductForm({ initialData }: ProductFormProps) {
         </div>
       </div>
 
-      <div className="pt-6 border-t border-surface-200 flex justify-end gap-3">
+      <div className="pt-6 border-t border-surface-200 dark:border-surface-800 flex justify-end gap-3">
         <Button
           type="button"
           variant="outline"

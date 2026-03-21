@@ -12,9 +12,9 @@ interface EmptyStateProps {
 export default function EmptyState({ icon, title, description, action, className }: EmptyStateProps) {
   return (
     <div className={cn('flex flex-col items-center justify-center py-16 text-center', className)}>
-      {icon && <div className="mb-4 text-surface-300">{icon}</div>}
-      <h3 className="text-lg font-semibold text-surface-700 mb-1">{title}</h3>
-      {description && <p className="text-surface-500 text-sm max-w-sm mb-6">{description}</p>}
+      {icon && <div className="mb-4 text-surface-300 dark:text-surface-600">{icon}</div>}
+      <h3 className="text-lg font-semibold text-surface-700 dark:text-surface-100 mb-1">{title}</h3>
+      {description && <p className="text-surface-500 dark:text-surface-300 text-sm max-w-sm mb-6">{description}</p>}
       {action}
     </div>
   );
@@ -29,9 +29,9 @@ interface AlertProps {
 
 export function Alert({ variant = 'info', children, className }: AlertProps) {
   const styles = {
-    info: 'bg-blue-50 border-blue-200 text-blue-800',
-    success: 'bg-emerald-50 border-emerald-200 text-emerald-800',
-    error: 'bg-red-50 border-red-200 text-red-800',
+    info: 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800/50 text-blue-800 dark:text-blue-200',
+    success: 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800/50 text-emerald-800 dark:text-emerald-200',
+    error: 'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800/50 text-red-800 dark:text-red-200',
   };
 
   const icons = {

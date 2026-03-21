@@ -33,7 +33,7 @@ export default async function Home() {
               <Translate section="home" textKey="heroTitle" />
             </h1>
             
-            <p className="text-lg text-surface-600 max-w-2xl leading-relaxed animate-slide-up" style={{ animationDelay: '200ms' }}>
+            <p className="text-lg text-surface-600 dark:text-surface-300 max-w-2xl leading-relaxed animate-slide-up" style={{ animationDelay: '200ms' }}>
               <Translate section="home" textKey="heroSubtitle" />
             </p>
             
@@ -78,7 +78,7 @@ export default async function Home() {
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold text-surface-900 dark:text-surface-50 mb-2">{feature.title}</h3>
-              <p className="text-surface-600 leading-relaxed">{feature.description}</p>
+              <p className="text-surface-600 dark:text-surface-300 leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -89,7 +89,7 @@ export default async function Home() {
         <div className="flex items-center justify-between mb-10">
           <div>
             <h2 className="text-3xl font-bold tracking-tight text-surface-900 dark:text-surface-50"><Translate section="home" textKey="newArrivals" /></h2>
-            <p className="mt-2 text-surface-500"><Translate section="home" textKey="newArrivalsDesc" /></p>
+            <p className="mt-2 text-surface-500 dark:text-surface-300"><Translate section="home" textKey="newArrivalsDesc" /></p>
           </div>
           <Link href="/products" className="hidden sm:flex group items-center gap-2 text-primary-600 font-medium hover:text-primary-700 transition-colors">
             <Translate section="home" textKey="viewAll" /> <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -105,8 +105,8 @@ export default async function Home() {
         ) : (
           <div className="text-center py-12 bg-surface-50 dark:bg-surface-800/50 rounded-3xl border border-surface-100 dark:border-surface-700 border-dashed">
             <Package className="w-12 h-12 text-surface-400 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-surface-900 dark:text-surface-50"><Translate section="home" textKey="noProductsYet" /></h3>
-            <p className="text-surface-500 mt-1"><Translate section="home" textKey="noProductsDesc" /></p>
+            <h3 className="text-lg font-medium text-surface-900 dark:text-surface-100"><Translate section="home" textKey="noProductsYet" /></h3>
+            <p className="text-surface-500 dark:text-surface-400 mt-1"><Translate section="home" textKey="noProductsDesc" /></p>
             <Link href="/register" className="mt-4 inline-block">
               <Button variant="outline"><Translate section="home" textKey="createSellerAccount" /></Button>
             </Link>

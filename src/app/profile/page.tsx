@@ -132,8 +132,8 @@ export default function ProfilePage() {
   return (
     <div className="container-custom max-w-3xl py-12 animate-fade-in">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-surface-900">{tProfile.title}</h1>
-        <p className="text-surface-500 mt-2">Manage your personal information and preferences.</p>
+        <h1 className="text-3xl font-bold text-surface-900 dark:text-surface-50">{tProfile.title}</h1>
+        <p className="text-surface-500 dark:text-surface-300 mt-2">Manage your personal information and preferences.</p>
       </div>
 
       <div className="glass p-8 rounded-3xl">
@@ -145,8 +145,8 @@ export default function ProfilePage() {
 
         <form onSubmit={handleSave} className="space-y-8">
           {/* Avatar Section */}
-          <div className="flex flex-col sm:flex-row items-start gap-6 pb-8 border-b border-surface-200">
-            <div className="relative w-32 h-32 rounded-full overflow-hidden bg-surface-100 border-4 border-white shadow-lg flex-shrink-0 group">
+          <div className="flex flex-col sm:flex-row items-start gap-6 pb-8 border-b border-surface-200 dark:border-surface-800">
+            <div className="relative w-32 h-32 rounded-full overflow-hidden bg-surface-100 dark:bg-surface-800 border-4 border-white dark:border-surface-700 shadow-lg flex-shrink-0 group">
               {avatarUrl ? (
                 <>
                   <Image src={avatarUrl} alt="Avatar" fill sizes="128px" className="object-cover" />
@@ -163,14 +163,14 @@ export default function ProfilePage() {
                   <Loader2 className="w-6 h-6 text-primary-500 animate-spin" />
                 </div>
               ) : (
-                <div className="absolute inset-0 flex items-center justify-center text-surface-400">
+                <div className="absolute inset-0 flex items-center justify-center text-surface-400 dark:text-surface-600">
                   <User className="w-12 h-12" />
                 </div>
               )}
             </div>
             
             <div className="space-y-3 pt-2">
-              <h3 className="text-lg font-medium text-surface-900">{tProfile.profilePic}</h3>
+              <h3 className="text-lg font-medium text-surface-900 dark:text-surface-50">{tProfile.profilePic}</h3>
               <div className="inline-block">
                 <Button 
                   type="button" 
@@ -191,7 +191,7 @@ export default function ProfilePage() {
                   disabled={uploading || saving}
                 />
               </div>
-              <p className="text-sm text-surface-500">
+              <p className="text-sm text-surface-500 dark:text-surface-300">
                 JPG, PNG or WEBP. Max size of 5MB.
               </p>
             </div>
@@ -212,7 +212,7 @@ export default function ProfilePage() {
                 label={tProfile.role}
                 value={profile?.role || ''}
                 disabled
-                className="capitalize bg-surface-50 text-surface-500"
+                className="capitalize bg-surface-50 dark:bg-surface-900/50 text-surface-500 dark:text-surface-300"
               />
             </div>
           </div>

@@ -26,7 +26,7 @@ export default async function ProductDetailPage({
 
   return (
     <div className="container-custom py-8 animate-fade-in">
-      <Link href="/products" className="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-surface-900 dark:hover:text-surface-50 mb-8 transition-colors">
+      <Link href="/products" className="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-surface-900 dark:hover:text-surface-100 mb-8 transition-colors">
         <ArrowLeft className="w-4 h-4" /> <Translate section="products" textKey="backToProducts" />
       </Link>
 
@@ -53,7 +53,7 @@ export default async function ProductDetailPage({
         <div className="flex flex-col">
           <Badge variant="default" className="w-fit mb-4">{product.category}</Badge>
           
-          <h1 className="text-3xl md:text-4xl font-bold text-surface-900 dark:text-surface-50 tracking-tight text-balance mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-surface-900 dark:text-surface-100 tracking-tight text-balance mb-4">
             {product.name}
           </h1>
           
@@ -61,7 +61,7 @@ export default async function ProductDetailPage({
             {formatPrice(product.price)}
           </div>
 
-          <div className="prose prose-surface max-w-none text-surface-600 mb-8">
+          <div className="prose prose-surface max-w-none text-surface-600 dark:text-surface-400 mb-8">
             <p className="whitespace-pre-wrap">{product.description || <Translate section="products" textKey="noDesc" />}</p>
           </div>
 
@@ -75,19 +75,19 @@ export default async function ProductDetailPage({
                 )}
               </div>
               <div>
-                <p className="text-sm font-medium text-surface-900 dark:text-surface-50 flex items-center gap-1.5">
+                <p className="text-sm font-medium text-surface-900 dark:text-surface-100 flex items-center gap-1.5">
                   <Store className="w-4 h-4 text-surface-400" />
                   {product.seller?.full_name || 'Unknown Seller'}
                 </p>
-                <p className="text-xs text-surface-500"><Translate section="products" textKey="verifiedSeller" /></p>
+                <p className="text-xs text-surface-500 dark:text-surface-400"><Translate section="products" textKey="verifiedSeller" /></p>
               </div>
             </div>
             
-            <div className="flex gap-4 pt-4 border-t border-surface-200/60">
-               <div className="flex items-center gap-2 text-xs text-surface-600">
+            <div className="flex gap-4 pt-4 border-t border-surface-200/60 font-medium">
+               <div className="flex items-center gap-2 text-xs text-surface-600 dark:text-surface-400">
                  <ShieldCheck className="w-4 h-4 text-emerald-500" /> <Translate section="products" textKey="secureTrans" />
                </div>
-               <div className="flex items-center gap-2 text-xs text-surface-600">
+               <div className="flex items-center gap-2 text-xs text-surface-600 dark:text-surface-400">
                  <HelpCircle className="w-4 h-4 text-blue-500" /> <Translate section="products" textKey="buyerProtect" />
                </div>
             </div>
@@ -95,7 +95,7 @@ export default async function ProductDetailPage({
 
           <div className="mt-auto space-y-6">
             <div className="flex items-center justify-between text-sm">
-               <span className="text-surface-600 font-medium"><Translate section="dashboard" textKey="status" /></span>
+               <span className="text-surface-600 dark:text-surface-400 font-medium"><Translate section="dashboard" textKey="status" /></span>
                {product.stock > 0 ? (
                  <span className="text-emerald-600 font-medium bg-emerald-50 px-3 py-1 rounded-full"><Translate section="dashboard" textKey="inStock" /> ({product.stock})</span>
                ) : (
