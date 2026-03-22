@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { ShoppingCart, CheckCircle, Minus, Plus } from 'lucide-react';
 import { toast } from '@/stores/toast-store';
 import { useCartStore } from '@/stores/cart-store';
@@ -9,6 +10,7 @@ import type { Product } from '@/lib/types';
 import { cn } from '@/lib/utils';
 
 export default function AddToCartButton({ product, currentUserId }: { product: Product, currentUserId?: string }) {
+  const router = useRouter();
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
   const _addItem = useCartStore((state) => state.addItem);
@@ -17,6 +19,11 @@ export default function AddToCartButton({ product, currentUserId }: { product: P
   const handleIncrease = () => setQuantity((q) => Math.min(product.stock, q + 1));
 
   const handleAddToCart = () => {
+    if (!currentUserId) {
+      router.push(`/login?redirect=/products/${product.id}`);
+      return;
+    }
+    
     if (product.stock <= 0 || added) return;
     
     _addItem(product, quantity);
