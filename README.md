@@ -1,6 +1,6 @@
 # Marketplace - Fullstack Next.js Portfolio
 
-A modern fullstack marketplace built with Next.js 14, Supabase, and Tailwind CSS.
+A modern fullstack marketplace built with Next.js 16, Supabase, and Tailwind CSS.
 
 ## Getting Started
 
