@@ -46,6 +46,7 @@ export interface Order {
   total: number;
   status: 'pending' | 'paid' | 'cancelled';
   payment_id: string | null;
+  snap_token?: string | null;
   created_at: string;
 }
 

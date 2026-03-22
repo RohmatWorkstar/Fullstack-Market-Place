@@ -17,3 +17,13 @@ A modern fullstack marketplace built with Next.js 14, Supabase, and Tailwind CSS
 - **State**: Zustand
 - **Icons**: Lucide React
 - **Deployment**: Vercel
+
+
+**Demo User Seller**
+Email: demo-seller@gmail.com
+Password: 123
+
+**Demo User Buyer**
+Email: demo-buyer@gmail.com
+Password: 123
+
