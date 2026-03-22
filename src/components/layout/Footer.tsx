@@ -24,7 +24,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-8 pt-8 border-t border-surface-100 dark:border-surface-800 text-center text-sm text-surface-500 dark:text-surface-400">
-          &copy; {new Date().getFullYear()} Marketplace Portfolio. <Translate section="footer" textKey="rights" />
+          &copy; {new Date().getFullYear()} Rohmat's Portfolio. <Translate section="footer" textKey="rights" />
         </div>
       </div>
     </footer>

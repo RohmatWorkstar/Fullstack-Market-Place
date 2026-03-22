@@ -21,7 +21,7 @@ export const dictionaries = {
     home: {
       tagline: 'Next.js 14 App Router',
       heroTitle: 'Discover amazing products from verified sellers',
-      heroSubtitle: 'A modern, full-stack marketplace template demonstrating advanced architecture, Server Actions, and seamless user experiences.',
+      heroSubtitle: 'A premium, highly-scalable e-commerce platform engineered with advanced Next.js architecture, delivering secure transactions and an uncompromising user experience.',
       startShopping: 'Start Shopping',
       becomeSeller: 'Become a Seller',
       features: 'Features',
@@ -245,7 +245,7 @@ export const dictionaries = {
     home: {
       tagline: 'Next.js 14 App Router',
       heroTitle: 'Temukan produk luar biasa dari penjual terverifikasi',
-      heroSubtitle: 'Template marketplace full-stack modern dengan arsitektur canggih dan pengalaman pengguna yang mulus.',
+      heroSubtitle: 'Platform e-commerce premium yang sangat scalable, direkayasa dengan arsitektur Next.js tingkat lanjut untuk memberikan transaksi aman dan pengalaman pengguna tanpa kompromi.',
       startShopping: 'Mulai Belanja',
       becomeSeller: 'Mulai Berjualan',
       features: 'Fitur',
