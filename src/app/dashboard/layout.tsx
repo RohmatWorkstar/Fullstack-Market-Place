@@ -1,4 +1,4 @@
-import { ShoppingBag, PackagePlus, ArrowRight } from 'lucide-react';
+import { ShoppingBag, PackagePlus, ArrowRight, ClipboardList } from 'lucide-react';
 import Link from 'next/link';
 
 export default function DashboardLayout({
@@ -32,6 +32,13 @@ export default function DashboardLayout({
               >
                 <PackagePlus className="w-5 h-5" />
                 Add Product
+              </Link>
+              <Link
+                href="/dashboard/orders"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl text-surface-600 hover:bg-surface-50 hover:text-primary-600 transition-colors"
+              >
+                <ClipboardList className="w-5 h-5" />
+                Order History
               </Link>
             </nav>
           </div>

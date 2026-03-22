@@ -88,6 +88,13 @@ export default function ProductForm({ initialData }: ProductFormProps) {
           .update(productData)
           .eq('id', initialData.id);
         if (error) throw error;
+        toast.success('Product updated successfully!');
+      } else {
+        // Create
+        const { error } = await supabase
+          .from('products')
+          .insert([productData]);
+        if (error) throw error;
         toast.success('Product created successfully!');
       }
 
