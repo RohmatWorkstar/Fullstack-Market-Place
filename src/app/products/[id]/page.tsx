@@ -15,6 +15,8 @@ export default async function ProductDetailPage({
 }) {
   const { id } = await params;
   const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
   const { data: product } = await supabase
     .from('products')
     .select('*, seller:profiles(*)')
@@ -85,11 +87,24 @@ export default async function ProductDetailPage({
             </div>
             
             <div className="flex gap-4 pt-4 border-t border-surface-200/60 font-medium">
-               <div className="flex items-center gap-2 text-xs text-surface-600 dark:text-surface-400">
+               <div className="group relative flex items-center gap-2 text-xs text-surface-600 dark:text-surface-400 cursor-help">
                  <ShieldCheck className="w-4 h-4 text-emerald-500" /> <Translate section="products" textKey="secureTrans" />
+                 
+                 {/* Tooltip */}
+                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2 bg-surface-900 dark:bg-surface-50 text-surface-50 dark:text-surface-900 text-xs text-center rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 shadow-lg pointer-events-none">
+                   All payments are securely processed and encrypted.
+                   <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-900 dark:border-t-surface-50"></div>
+                 </div>
                </div>
-               <div className="flex items-center gap-2 text-xs text-surface-600 dark:text-surface-400">
+               
+               <div className="group relative flex items-center gap-2 text-xs text-surface-600 dark:text-surface-400 cursor-help">
                  <HelpCircle className="w-4 h-4 text-blue-500" /> <Translate section="products" textKey="buyerProtect" />
+                 
+                 {/* Tooltip */}
+                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2 bg-surface-900 dark:bg-surface-50 text-surface-50 dark:text-surface-900 text-xs text-center rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 shadow-lg pointer-events-none">
+                   Get a full refund if the item is not as described.
+                   <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-900 dark:border-t-surface-50"></div>
+                 </div>
                </div>
             </div>
           </div>
@@ -104,7 +119,7 @@ export default async function ProductDetailPage({
                )}
             </div>
 
-            <AddToCartButton product={product} />
+            <AddToCartButton product={product} currentUserId={user?.id} />
           </div>
         </div>
       </div>

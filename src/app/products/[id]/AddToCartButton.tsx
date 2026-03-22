@@ -8,7 +8,7 @@ import Button from '@/components/ui/Button';
 import type { Product } from '@/lib/types';
 import { cn } from '@/lib/utils';
 
-export default function AddToCartButton({ product }: { product: Product }) {
+export default function AddToCartButton({ product, currentUserId }: { product: Product, currentUserId?: string }) {
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
   const _addItem = useCartStore((state) => state.addItem);
@@ -24,6 +24,16 @@ export default function AddToCartButton({ product }: { product: Product }) {
     toast.success(`${product.name} added to cart!`);
     setTimeout(() => setAdded(false), 2000);
   };
+
+  const isOwner = currentUserId === product.seller_id;
+
+  if (isOwner) {
+    return (
+      <Button className="w-full" size="lg" disabled>
+        Your Product
+      </Button>
+    );
+  }
 
   if (product.stock <= 0) {
     return (

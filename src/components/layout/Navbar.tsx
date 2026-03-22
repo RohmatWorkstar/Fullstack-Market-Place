@@ -131,17 +131,19 @@ export default function Navbar() {
               <LanguageToggle />
               <ThemeToggle />
             </div>
-            <Link
-              href="/cart"
-              className="relative p-2 text-surface-600 dark:text-surface-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-full transition-colors"
-            >
-              <ShoppingCart className="w-5 h-5" />
-              {cartItemCount > 0 && (
-                <span className="absolute top-0 right-0 w-4 h-4 bg-primary-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center transform translate-x-1 -translate-y-1 ring-2 ring-white">
-                  {cartItemCount}
-                </span>
-              )}
-            </Link>
+            {(!loading && profile) && (
+              <Link
+                href="/cart"
+                className="relative p-2 text-surface-600 dark:text-surface-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-full transition-colors"
+              >
+                <ShoppingCart className="w-5 h-5" />
+                {cartItemCount > 0 && (
+                  <span className="absolute top-0 right-0 w-4 h-4 bg-primary-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center transform translate-x-1 -translate-y-1 ring-2 ring-white">
+                    {cartItemCount}
+                  </span>
+                )}
+              </Link>
+            )}
 
             {!loading && (
               <>
@@ -218,14 +220,16 @@ export default function Navbar() {
           <div className="md:hidden flex items-center gap-3">
             <LanguageToggle />
             <ThemeToggle />
-            <Link href="/cart" className="relative p-2 text-surface-600 dark:text-surface-300">
-              <ShoppingCart className="w-5 h-5" />
-              {cartItemCount > 0 && (
-                <span className="absolute top-0 right-0 w-4 h-4 bg-primary-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center transform translate-x-1 -translate-y-1">
-                  {cartItemCount}
-                </span>
-              )}
-            </Link>
+            {(!loading && profile) && (
+              <Link href="/cart" className="relative p-2 text-surface-600 dark:text-surface-300">
+                <ShoppingCart className="w-5 h-5" />
+                {cartItemCount > 0 && (
+                  <span className="absolute top-0 right-0 w-4 h-4 bg-primary-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center transform translate-x-1 -translate-y-1">
+                    {cartItemCount}
+                  </span>
+                )}
+              </Link>
+            )}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-surface-600 dark:text-surface-300"
