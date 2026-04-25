@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @variant dark (&:where(.dark, .dark *));
@@ -30,7 +30,7 @@
   --color-surface-900: #0f172a;
   --color-surface-950: #020617;
 
-  --font-sans: "Inter", "system-ui", "sans-serif";
+  --font-sans: "Plus Jakarta Sans", "Inter", "system-ui", "sans-serif";
 
   --animate-fade-in: fadeIn 0.5s ease-out;
   --animate-slide-up: slideUp 0.5s ease-out;
@@ -56,62 +56,77 @@
 }
 
 @utility container-custom {
-  max-width: 80rem;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
   @media (min-width: 640px) {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-  @media (min-width: 1024px) {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+  @media (min-width: 1024px) {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
 
 @utility glass {
-  background-color: rgba(255, 255, 255, 0.65);
+  background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(226, 232, 240, 0.6);
-  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--color-surface-200);
+  box-shadow: 
+    0 4px 6px -1px rgba(15, 23, 42, 0.03),
+    0 10px 20px -5px rgba(15, 23, 42, 0.05);
 
   :where(.dark) & {
-    background-color: rgba(2, 6, 23, 0.7);
-    border: 1px solid rgba(51, 65, 85, 0.5);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    background-color: rgba(15, 23, 42, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      0 10px 30px -10px rgba(0, 0, 0, 0.5),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+}
+
+@utility shadow-premium {
+  box-shadow: 
+    0 1px 3px 0 rgba(15, 23, 42, 0.05),
+    0 10px 25px -5px rgba(15, 23, 42, 0.05),
+    0 8px 10px -6px rgba(15, 23, 42, 0.05);
+  :where(.dark) & {
+    box-shadow: 
+      0 10px 25px -5px rgba(0, 0, 0, 0.4),
+      0 8px 10px -6px rgba(0, 0, 0, 0.4);
   }
 }
 
 @utility gradient-primary {
-  background-image: linear-gradient(to right, var(--color-primary-500), var(--color-primary-700));
+  background-image: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-700));
 }
 
 @utility gradient-text {
-  background-image: linear-gradient(to right, var(--color-primary-500), var(--color-primary-700));
+  background-image: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-700));
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
 }
 
 @utility hover-lift {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   &:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 10px 10px -5px rgba(15, 23, 42, 0.05);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 }
 
 @utility input-base {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.875rem 1.25rem;
   border-radius: 1rem;
   border: 1px solid var(--color-surface-200);
   background-color: #ffffff;
   color: var(--color-surface-900);
-  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
   
   &::placeholder {
     color: var(--color-surface-400);
@@ -119,9 +134,9 @@
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
     border-color: var(--color-primary-500);
-    transform: translateY(-1px);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+    background-color: #ffffff;
   }
 
   :where(.dark) & {
@@ -132,7 +147,9 @@
       color: var(--color-surface-500);
     }
     &:focus {
-      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+      border-color: var(--color-primary-400);
+      background-color: var(--color-surface-950);
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
     }
   }
 }
@@ -149,7 +166,8 @@
     background-color: var(--color-surface-50);
     color: var(--color-surface-900);
     -webkit-font-smoothing: antialiased;
-    transition: background-color 300ms, color 300ms;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
 
     :where(.dark) & {
       background-color: var(--color-surface-950);

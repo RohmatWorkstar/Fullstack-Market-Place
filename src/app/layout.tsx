@@ -9,7 +9,9 @@ export const metadata: Metadata = {
   title: "LinkMarketBlue | Premium Marketplace",
   description: "A high-performance fullstack e-commerce marketplace built with Next.js.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
 };
 

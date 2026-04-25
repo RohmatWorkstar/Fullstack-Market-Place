@@ -76,12 +76,12 @@ export default async function Home() {
               description: <Translate section="home" textKey="verifiedSellersDesc" />
             }
           ].map((feature, i) => (
-            <div key={i} className="p-6 rounded-3xl bg-surface-100 dark:bg-surface-900 border border-surface-100 dark:border-surface-800 shadow-sm hover-lift">
-              <div className="w-12 h-12 rounded-2xl bg-primary-50 dark:bg-surface-800 border border-primary-100/50 dark:border-surface-700 flex items-center justify-center mb-6">
+            <div key={i} className="p-8 rounded-[2rem] bg-white dark:bg-surface-900 border border-surface-200 dark:border-surface-800 shadow-premium hover-lift">
+              <div className="w-14 h-14 rounded-2xl bg-primary-50 dark:bg-primary-950 border border-primary-100 dark:border-primary-900 flex items-center justify-center mb-6 shadow-sm shadow-primary-500/10">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-semibold text-surface-900 dark:text-surface-50 mb-2">{feature.title}</h3>
-              <p className="text-surface-600 dark:text-surface-400 leading-relaxed">{feature.description}</p>
+              <h3 className="text-xl font-bold text-surface-900 dark:text-surface-50 mb-3">{feature.title}</h3>
+              <p className="text-surface-600 dark:text-surface-400 leading-relaxed font-medium">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -106,10 +106,12 @@ export default async function Home() {
             ))}
           </div>
         ) : (
-          <div className="text-center py-12 bg-white dark:bg-surface-900 rounded-3xl border border-surface-200 dark:border-surface-800 border-dashed shadow-sm">
-            <Package className="w-12 h-12 text-surface-400 dark:text-surface-500 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-surface-900 dark:text-surface-100"><Translate section="home" textKey="noProductsYet" /></h3>
-            <p className="text-surface-500 dark:text-surface-400 mt-1"><Translate section="home" textKey="noProductsDesc" /></p>
+          <div className="text-center py-16 bg-white dark:bg-surface-900 rounded-[2.5rem] border border-surface-200 dark:border-surface-800 border-dashed shadow-premium animate-fade-in">
+            <div className="w-20 h-20 bg-surface-50 dark:bg-surface-950 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
+              <Package className="w-10 h-10 text-surface-400 dark:text-surface-500" />
+            </div>
+            <h3 className="text-2xl font-bold text-surface-900 dark:text-surface-100"><Translate section="home" textKey="noProductsYet" /></h3>
+            <p className="text-surface-500 dark:text-surface-400 mt-2 max-w-sm mx-auto font-medium"><Translate section="home" textKey="noProductsDesc" /></p>
             <Link href="/register" className="mt-4 inline-block">
               <Button variant="outline"><Translate section="home" textKey="createSellerAccount" /></Button>
             </Link>

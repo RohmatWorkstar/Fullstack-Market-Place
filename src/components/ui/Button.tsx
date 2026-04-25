@@ -13,19 +13,19 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'primary', size = 'md', loading, children, disabled, ...props }, ref) => {
     const baseStyles =
-      'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+      'inline-flex items-center justify-center font-bold rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
 
     const variants = {
       primary:
-        'bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500/50 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:-translate-y-0.5',
+        'bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500/50 shadow-xl shadow-primary-500/25 hover:shadow-primary-500/40 hover:-translate-y-1',
       secondary:
-        'bg-surface-100 dark:bg-surface-900 text-surface-900 dark:text-surface-50 hover:bg-surface-200 dark:hover:bg-surface-800 focus:ring-surface-300 dark:focus:ring-surface-700 border border-surface-200/50 dark:border-surface-800',
+        'bg-surface-100 dark:bg-surface-800 text-surface-900 dark:text-surface-50 hover:bg-surface-200 dark:hover:bg-surface-700 focus:ring-surface-300 dark:focus:ring-surface-600 border border-surface-200 dark:border-surface-700',
       outline:
         'border-2 border-surface-200 dark:border-surface-800 text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-900 hover:border-primary-500/50 focus:ring-primary-500/30',
       ghost:
         'text-surface-600 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-900 hover:text-surface-900 dark:hover:text-surface-100 focus:ring-surface-200 dark:focus:ring-surface-800',
       danger:
-        'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500/50 shadow-lg shadow-red-500/20 hover:shadow-red-500/40 hover:-translate-y-0.5',
+        'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500/50 shadow-xl shadow-red-500/25 hover:shadow-red-500/40 hover:-translate-y-1',
     };
 
     const sizes = {

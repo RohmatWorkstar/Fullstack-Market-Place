@@ -62,105 +62,109 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8 glass p-8 sm:p-10 rounded-3xl">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-surface-900 dark:text-surface-100">
+      <div className="w-full max-w-md space-y-8 glass shadow-premium p-8 sm:p-12 rounded-[2.5rem] animate-fade-in">
+        <div className="text-center space-y-2">
+          <h2 className="text-4xl font-extrabold tracking-tight text-surface-900 dark:text-surface-50">
             {tAuth.registerTitle}
           </h2>
-          <p className="mt-2 text-sm text-surface-500 dark:text-surface-400">
+          <p className="text-surface-500 dark:text-surface-400 font-medium">
             {tAuth.registerSubtitle}
           </p>
         </div>
 
         <form className="mt-8 space-y-6" onSubmit={handleRegister}>
           {error && (
-            <Alert variant="error" className="animate-fade-in">
+            <Alert variant="error" className="animate-fade-in rounded-2xl">
               {error}
             </Alert>
           )}
 
-          <div className="space-y-4">
+          <div className="space-y-5">
             {/* Role Selection */}
-            <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="grid grid-cols-2 gap-4 mb-8">
               <button
                 type="button"
                 onClick={() => setRole('buyer')}
                 className={cn(
-                  'flex flex-col items-center gap-2 p-4 rounded-2xl border-2 transition-all duration-200',
+                  'flex flex-col items-center gap-3 p-5 rounded-3xl border-2 transition-all duration-300 hover-lift',
                   role === 'buyer'
-                    ? 'border-primary-500 bg-primary-50 text-primary-700'
-                    : 'border-surface-200 dark:border-surface-700 bg-surface-50 dark:bg-surface-800 text-surface-500 dark:text-surface-400 hover:border-primary-200 dark:hover:border-primary-500 hover:bg-surface-100 dark:hover:bg-surface-700'
+                    ? 'border-primary-500 bg-primary-50/50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-400 shadow-md shadow-primary-500/10'
+                    : 'border-surface-200 dark:border-surface-800 bg-white/50 dark:bg-surface-900/50 text-surface-500 dark:text-surface-400'
                 )}
               >
                 <div className={cn(
-                  'p-2 rounded-full',
-                  role === 'buyer' ? 'bg-primary-100 text-primary-600' : 'bg-surface-100 dark:bg-surface-700 text-surface-600 dark:text-surface-300'
+                  'p-3 rounded-2xl transition-colors',
+                  role === 'buyer' 
+                    ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30' 
+                    : 'bg-surface-100 dark:bg-surface-800 text-surface-400 dark:text-surface-500'
                 )}>
-                  <ShoppingBag className="w-5 h-5" />
+                  <ShoppingBag className="w-6 h-6" />
                 </div>
-                <span className="font-medium text-sm dark:text-surface-100">{tAuth.buyer}</span>
+                <span className="font-bold text-sm">{tAuth.buyer}</span>
               </button>
               
               <button
                 type="button"
                 onClick={() => setRole('seller')}
                 className={cn(
-                  'flex flex-col items-center gap-2 p-4 rounded-2xl border-2 transition-all duration-200',
+                  'flex flex-col items-center gap-3 p-5 rounded-3xl border-2 transition-all duration-300 hover-lift',
                   role === 'seller'
-                    ? 'border-primary-500 bg-primary-50 text-primary-700'
-                    : 'border-surface-200 dark:border-surface-700 bg-surface-50 dark:bg-surface-800 text-surface-500 dark:text-surface-400 hover:border-primary-200 dark:hover:border-primary-500 hover:bg-surface-100 dark:hover:bg-surface-700'
+                    ? 'border-primary-500 bg-primary-50/50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-400 shadow-md shadow-primary-500/10'
+                    : 'border-surface-200 dark:border-surface-800 bg-white/50 dark:bg-surface-900/50 text-surface-500 dark:text-surface-400'
                 )}
               >
                 <div className={cn(
-                  'p-2 rounded-full',
-                  role === 'seller' ? 'bg-primary-100 text-primary-600' : 'bg-surface-100 dark:bg-surface-700 text-surface-600 dark:text-surface-300'
+                  'p-3 rounded-2xl transition-colors',
+                  role === 'seller' 
+                    ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30' 
+                    : 'bg-surface-100 dark:bg-surface-800 text-surface-400 dark:text-surface-500'
                 )}>
-                  <Store className="w-5 h-5" />
+                  <Store className="w-6 h-6" />
                 </div>
-                <span className="font-medium text-sm dark:text-surface-100">{tAuth.seller}</span>
+                <span className="font-bold text-sm">{tAuth.seller}</span>
               </button>
             </div>
 
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <User className="h-5 w-5 text-surface-400" />
+            <div className="relative group">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-primary-500">
+                <User className="h-5 w-5 text-surface-400 group-focus-within:text-primary-500" />
               </div>
               <Input
                 id="name"
                 type="text"
                 required
                 placeholder={tAuth.fullName}
-                className="pl-11"
+                className="pl-12"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
 
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <Mail className="h-5 w-5 text-surface-400" />
+            <div className="relative group">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-primary-500">
+                <Mail className="h-5 w-5 text-surface-400 group-focus-within:text-primary-500" />
               </div>
               <Input
                 id="email"
                 type="email"
                 required
                 placeholder={tAuth.email}
-                className="pl-11"
+                className="pl-12"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <Lock className="h-5 w-5 text-surface-400" />
+            <div className="relative group">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-primary-500">
+                <Lock className="h-5 w-5 text-surface-400 group-focus-within:text-primary-500" />
               </div>
               <Input
                 id="password"
                 type="password"
                 required
                 placeholder={`${tAuth.password} (min 6 chars)`}
-                className="pl-11"
+                className="pl-12"
                 minLength={6}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -168,15 +172,15 @@ export default function RegisterPage() {
             </div>
           </div>
 
-
-
-          <Button type="submit" className="w-full" loading={loading} size="lg">
-            {tAuth.signUp}
-          </Button>
+          <div className="pt-2">
+            <Button type="submit" className="w-full shadow-xl shadow-primary-500/25" loading={loading} size="lg">
+              {tAuth.signUp}
+            </Button>
+          </div>
           
           <div className="text-center text-sm text-surface-500 dark:text-surface-400">
             {tAuth.hasAccount}{' '}
-            <Link href="/login" className="font-semibold text-primary-600 hover:text-primary-500 hover:underline">
+            <Link href="/login" className="font-bold text-primary-600 dark:text-primary-400 hover:text-primary-500 hover:underline transition-colors">
               {tAuth.signIn}
             </Link>
           </div>
