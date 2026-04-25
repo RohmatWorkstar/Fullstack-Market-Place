@@ -30,6 +30,7 @@ export default function RegisterPage() {
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     if (loading) return;
+    
     setLoading(true);
     setError(null);
 
@@ -166,6 +167,8 @@ export default function RegisterPage() {
               />
             </div>
           </div>
+
+
 
           <Button type="submit" className="w-full" loading={loading} size="lg">
             {tAuth.signUp}
