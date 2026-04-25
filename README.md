@@ -1,6 +1,6 @@
-# Marketplace - Fullstack Next.js Portfolio
+# LinkMarketBlue - Fullstack E-Commerce Platform
 
-A modern fullstack marketplace built with Next.js 16, Supabase, and Tailwind CSS.
+A modern fullstack e-commerce platform built with Next.js 14, Supabase, and Tailwind CSS.
 
 ## Getting Started
 

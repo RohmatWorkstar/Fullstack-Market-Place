@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="flex flex-col items-center md:items-start">
             <Link href="/" className="text-xl font-bold gradient-text">
-              Marketplace
+              LinkMarketBlue
             </Link>
             {/* <p className="text-surface-500 dark:text-surface-400 text-sm mt-2">
               <Translate section="footer" textKey="tagline" />
@@ -24,7 +24,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-8 pt-8 border-t border-surface-100 dark:border-surface-800 text-center text-sm text-surface-500 dark:text-surface-400">
-          &copy; {new Date().getFullYear()} Rohmat's Portfolio. <Translate section="footer" textKey="rights" />
+          &copy; {new Date().getFullYear()} LinkMarketBlue. <Translate section="footer" textKey="rights" />
         </div>
       </div>
     </footer>

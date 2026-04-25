@@ -108,7 +108,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="text-2xl font-bold gradient-text flex-shrink-0">
-            Marketplace.
+            LinkMarketBlue.
           </Link>
 
           {/* Desktop Navigation */}

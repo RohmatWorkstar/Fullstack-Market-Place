@@ -6,8 +6,8 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/Toaster";
 
 export const metadata: Metadata = {
-  title: "Modern Marketplace | Premium Portfolio",
-  description: "A high-performance fullstack marketplace portfolio application built with Next.js and Supabase.",
+  title: "LinkMarketBlue | Premium Marketplace",
+  description: "A high-performance fullstack e-commerce marketplace built with Next.js.",
   icons: {
     icon: "/favicon.ico",
   },

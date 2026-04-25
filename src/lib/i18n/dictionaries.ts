@@ -26,7 +26,7 @@ export const dictionaries = {
       becomeSeller: 'Become a Seller',
       features: 'Features',
       securePayments: 'Secure Payments',
-      securePaymentsDesc: 'Simulated checkout flow with advanced cart state management.',
+      securePaymentsDesc: 'Secure and seamless checkout flow with advanced cart state management.',
       verifiedSellers: 'Verified Sellers',
       verifiedSellersDesc: 'Every seller is verified, ensuring a safe and reliable shopping experience.',
       newArrivals: 'New Arrivals',
@@ -53,15 +53,15 @@ export const dictionaries = {
       instagram: 'Instagram',
       github: 'GitHub',
       rights: 'All rights reserved.',
-      portfolio: 'Designed for portfolio purposes.'
+      portfolio: 'Providing the best e-commerce experience.'
     },
     about: {
-      title: 'About Marketplace',
+      title: 'About LinkMarketBlue',
       subtitle: 'We are building the most transparent and frictionless commerce platform on the web.',
       vision: 'Our Vision',
       visionDesc: 'Empowering local creators and businesses to reach a global audience with zero friction. We believe in open ecosystems, secure transactions, and beautiful design.',
       security: 'Bank-grade Security',
-      securityDesc: 'All transactions are simulated with strict state management and robust database policies.',
+      securityDesc: 'All transactions are protected with strict state management and robust database policies.',
       speed: 'Lightning Fast',
       speedDesc: 'Built on Next.js 14 for optimal performance and instant page loads.',
       community: 'Global Community',
@@ -193,7 +193,7 @@ export const dictionaries = {
     terms: {
       title: 'Terms of Service',
       lastUpdated: 'Last Updated: March 2026',
-      intro: 'Welcome to Marketplace. By accessing or using our website and services, you agree to be bound by these Terms of Service. Please read them carefully before using our platform.',
+      intro: 'Welcome to LinkMarketBlue. By accessing or using our website and services, you agree to be bound by these Terms of Service. Please read them carefully before using our platform.',
       accounts: 'User Accounts',
       accountsDesc: 'To use certain features of our platform, you must register for an account. You agree to provide accurate, current, and complete information during the registration process. You are responsible for safeguarding your password and for all activities that occur under your account.',
       sellerResp: 'Seller Responsibilities',
@@ -209,7 +209,7 @@ export const dictionaries = {
     privacy: {
       title: 'Privacy Policy',
       lastUpdated: 'Last Updated: March 2026',
-      intro: 'At Marketplace, we take your privacy seriously. This Privacy Policy explains how we collect, use, and safeguard your information.',
+      intro: 'At LinkMarketBlue, we take your privacy seriously. This Privacy Policy explains how we collect, use, and safeguard your information.',
       collect: '1. Information We Collect',
       collectDesc: 'We collect information that you provide directly to us, such as when you create an account, request services, or contact support.',
       use: '2. How We Use Your Information',
@@ -250,7 +250,7 @@ export const dictionaries = {
       becomeSeller: 'Mulai Berjualan',
       features: 'Fitur',
       securePayments: 'Pembayaran Aman',
-      securePaymentsDesc: 'Sistem checkout simulasi dengan manajemen keranjang yang canggih.',
+      securePaymentsDesc: 'Sistem checkout yang aman dan lancar dengan manajemen keranjang yang canggih.',
       verifiedSellers: 'Penjual Terverifikasi',
       verifiedSellersDesc: 'Setiap penjual telah diverifikasi, menjamin pengalaman belanja yang aman.',
       newArrivals: 'Produk Baru',
@@ -277,15 +277,15 @@ export const dictionaries = {
       instagram: 'Instagram',
       github: 'GitHub',
       rights: 'Seluruh hak cipta dilindungi.',
-      portfolio: 'Didesain untuk kebutuhan portofolio.'
+      portfolio: 'Memberikan pengalaman e-commerce terbaik.'
     },
     about: {
-      title: 'Tentang Marketplace',
+      title: 'Tentang LinkMarketBlue',
       subtitle: 'Kami membangun platform e-commerce yang transparan dan tanpa gesekan.',
       vision: 'Visi Kami',
       visionDesc: 'Memberdayakan kreator lokal untuk menjangkau pengguna global. Kami percaya pada ekosistem terbuka dan transaksi yang aman.',
       security: 'Keamanan Tingkat Bank',
-      securityDesc: 'Semua transaksi disimulasikan dengan manajemen state yang ketat.',
+      securityDesc: 'Semua transaksi dilindungi dengan manajemen state yang ketat.',
       speed: 'Secepat Kilat',
       speedDesc: 'Dibangun di atas Next.js 14 untuk performa optimal.',
       community: 'Komunitas Global',
@@ -417,7 +417,7 @@ export const dictionaries = {
     terms: {
       title: 'Syarat & Ketentuan',
       lastUpdated: 'Pembaruan Terakhir: Maret 2026',
-      intro: 'Selamat datang di Marketplace. Dengan mengakses atau menggunakan situs kami, Anda menyetujui Syarat dan Ketentuan ini. Harap baca dengan saksama.',
+      intro: 'Selamat datang di LinkMarketBlue. Dengan mengakses atau menggunakan situs kami, Anda menyetujui Syarat dan Ketentuan ini. Harap baca dengan saksama.',
       accounts: 'Akun Pengguna',
       accountsDesc: 'Untuk menggunakan fitur tertentu, Anda harus mendaftar akun. Anda bertanggung jawab menjaga keamanan kata sandi Anda dan informasi pendaftaran Anda.',
       sellerResp: 'Tanggung Jawab Penjual',
@@ -433,7 +433,7 @@ export const dictionaries = {
     privacy: {
       title: 'Kebijakan Privasi',
       lastUpdated: 'Pembaruan Terakhir: Maret 2026',
-      intro: 'Di Marketplace, kami menjaga privasi Anda dengan serius. Kebijakan ini menjelaskan bagaimana kami mengumpulkan dan menggunakan informasi Anda.',
+      intro: 'Di LinkMarketBlue, kami menjaga privasi Anda dengan serius. Kebijakan ini menjelaskan bagaimana kami mengumpulkan dan menggunakan informasi Anda.',
       collect: '1. Informasi yang Kami Kumpulkan',
       collectDesc: 'Kami mengumpulkan informasi yang Anda berikan langsung kepada kami, seperti saat membuat akun atau menghubungi dukungan.',
       use: '2. Bagaimana Kami Menggunakan Informasi Anda',
